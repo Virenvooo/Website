@@ -5,73 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vir's Website</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Particles.js Background -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
-    <!-- Top banner text - on top of everything -->
+    <!-- ==================== TOP BANNER ==================== -->
+    <!-- EDIT HERE: Change the message if you want -->
     <div class="top-banner">
-        <p>Open source on my GitHub</a> — feel free to use it, modify it, or get inspired! ✨</p>
+        <p>Open source on my GitHub — feel free to use it, modify it, or get inspired! ✨</p>
     </div>
 
-    <!-- Particles Background -->
+    <!-- ==================== BACKGROUND EFFECTS ==================== -->
     <div id="particles-js"></div>
+    <canvas id="snow-canvas"></canvas>
+    <canvas id="click-effect"></canvas>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" aria-label="Toggle dark/light mode">
+    <!-- ==================== UI ELEMENTS ==================== -->
+    <!-- Theme Toggle (Dark/Light Mode) -->
+    <button class="theme-toggle reveal" aria-label="Toggle dark/light mode">
         <svg id="theme-icon" viewBox="0 0 24 24">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
     </button>
 
-    <!-- Glowing Cursor -->
-    <div id="glowing-cursor"></div>
-
-    <!-- Click Effect Canvas -->
-    <canvas id="click-effect"></canvas>
-
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <button id="back-to-top" aria-label="Back to top" class="reveal">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="3">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
 
-    <!-- Main Content -->
+    <!-- Glowing Custom Cursor -->
+    <div id="glowing-cursor"></div>
+
+    <!-- ==================== FLOATING CHARACTER ==================== -->
+    <!-- EDIT HERE: Change the image URL to your preferred anime mascot (transparent PNG best) -->
+    <div class="floating-character reveal">
+        <img src="https://cdn.discordapp.com/attachments/901178528798756864/1456305174955163863/2499d94f8a2e18b2665361df7b409335.png?ex=6957e162&is=69568fe2&hm=8456d24ca9ed4599236138e4367628c632a7b6b4dc73a523f1535705949ed7aa&"
+             alt="Cute anime mascot" loading="lazy">
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
     <main class="container">
-        <div class="card">
-            <!-- ==================== CENTERED PROFILE ==================== -->
-            <section class="profile-hero">
+        <div class="card reveal">
+
+            <!-- ==================== PROFILE SECTION ==================== -->
+            <!-- EDIT HERE: Avatar, username, name, badges, bio -->
+            <section class="profile reveal">
                 <div class="avatar-wrapper">
-                    <img src="https://media.discordapp.net/attachments/901178528798756864/1456183073564524554/ebd907b9d268ab18b7fa6b4afc0574c9.png?ex=69576fab&is=69561e2b&hm=a6299ac3edac2b43a04f384469d55a0f8db77c775e176f86ce6cc184ede0d5f0&=&format=webp&quality=lossless" 
-                         alt="Avatar" class="avatar">
+                    <img src="https://cdn.discordapp.com/attachments/901178528798756864/1456183073564524554/ebd907b9d268ab18b7fa6b4afc0574c9.png?ex=69576fab&is=69561e2b&hm=a6299ac3edac2b43a04f384469d55a0f8db77c775e176f86ce6cc184ede0d5f0&"
+                         class="avatar" alt="Vir's avatar" loading="lazy">
                 </div>
 
                 <div class="profile-info">
                     <p class="username">._vir</p>
-                    <h1 class="name typewriter">Vir</h1>
+                    <h1 class="name gradient-text">Vir</h1>
+
                     <div class="badges">
-                        <span class="badge">14-Years-Old</span>
+                        <span class="badge">🧒 14-Years-Old</span>
                         <span class="badge">🎂 Oct 13</span>
-                        <span class="badge">He/Him</span>
-                        <span class="badge">ISTP-T</span>
-                        <span class="badge">Italy</span>
+                        <span class="badge">♂️ He/Him</span>
+                        <span class="badge">😒 ISTP-T</span>
+                        <span class="badge">🍕 Italy</span>
                     </div>
                 </div>
 
-                <div class="bio-section">
+                <div class="bio-container">
                     <h2 class="section-title bio-title">BIO</h2>
                     <p class="bio">
-                        Hey! Hope you're doing well, i'm Vir but you can call me whatever you want if i like it :D.<br>
+                        Hey! Hope you're doing well, I'm Vir but you can call me whatever you want if I like it :D.<br>
                         I'm into gaming, tech, music and animes!
                     </p>
                 </div>
             </section>
 
-            <hr class="divider">
+            <hr class="divider reveal">
 
-            <!-- Interests -->
-            <section class="section">
+            <!-- ==================== INTERESTS ==================== -->
+            <!-- EDIT HERE: Add/remove interests -->
+            <section class="section reveal">
                 <h2 class="section-title">INTERESTS</h2>
                 <div class="pills">
                     <span class="pill">🎵 Music</span>
@@ -79,93 +92,107 @@
                     <span class="pill">💻 Tech</span>
                     <span class="pill">🎮 Gaming</span>
                 </div>
-                <hr class="divider">
             </section>
 
-            <!-- Links -->
-            <section class="section">
+            <hr class="divider reveal">
+
+            <!-- ==================== SOCIAL LINKS ==================== -->
+            <!-- EDIT HERE: Add/remove/change links -->
+            <section class="section reveal">
                 <h2 class="section-title">LINKS</h2>
                 <div class="social-grid">
                     <a href="https://discord.com/users/823914932185202728" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/discord" alt="Discord" class="social-icon">
+                        <img src="https://cdn.simpleicons.org/discord" class="social-icon" alt="Discord">
                         <span>Discord</span>
                     </a>
                     <a href="https://github.com/Virenvooo/" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/github" alt="GitHub" class="social-icon">
+                        <img src="https://cdn.simpleicons.org/github" class="social-icon" alt="GitHub">
                         <span>GitHub</span>
                     </a>
                     <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/spotify" alt="Spotify" class="social-icon">
+                        <img src="https://cdn.simpleicons.org/spotify" class="social-icon" alt="Spotify">
                         <span>Spotify</span>
                     </a>
                     <a href="https://www.last.fm/it/user/Virenvo" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/lastdotfm" alt="Last.fm" class="social-icon">
+                        <img src="https://cdn.simpleicons.org/lastdotfm" class="social-icon" alt="Last.fm">
                         <span>Last.fm</span>
                     </a>
                     <a href="https://anilist.co/user/Vir/" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/anilist" alt="AniList" class="social-icon">
+                        <img src="https://cdn.simpleicons.org/anilist" class="social-icon" alt="AniList">
                         <span>AniList</span>
                     </a>
                 </div>
-                <hr class="divider">
             </section>
 
-            <!-- Widgets -->
-            <section class="section">
+            <hr class="divider reveal">
+
+            <!-- ==================== WIDGETS ==================== -->
+
+            <!-- Discord Status -->
+            <!-- EDIT HERE: Change Discord user ID if needed -->
+            <section class="section reveal">
                 <h2 class="section-title">DISCORD STATUS</h2>
                 <div class="discord-widget">
-                    <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png" alt="Discord Status" class="discord-banner-widget">
+                    <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png"
+                         alt="Discord Status" class="discord-banner-widget" loading="lazy">
                 </div>
-                <hr class="divider">
             </section>
 
-<section class="section">
-    <h2 class="section-title">ANILIST CARD</h2>
-    <a href="https://anilist.co/user/Vir" target="_blank" class="anilist-wrapper">
-        <img src="https://anilist-serve.federico-zhouu.workers.dev" 
-             alt="AniList Widget" 
-             class="anilist-img">
-    </a>
-</section>
+            <hr class="divider reveal">
 
-                <hr class="divider">
+            <!-- AniList Card -->
+            <!-- EDIT HERE: If the widget URL changes, update it here -->
+            <section class="section reveal">
+                <h2 class="section-title">ANILIST CARD</h2>
+                <a href="https://anilist.co/user/Vir" target="_blank" class="anilist-wrapper">
+                    <img src="https://anilist-serve.federico-zhouu.workers.dev"
+                         alt="AniList Stats" class="anilist-img" loading="lazy">
+                </a>
             </section>
-            
-            <section class="section">
+
+            <hr class="divider reveal">
+
+            <!-- Spotify Currently Playing -->
+            <!-- EDIT HERE: Change Spotify user ID if needed -->
+            <section class="section reveal">
                 <h2 class="section-title">CURRENTLY PLAYING ON SPOTIFY</h2>
-                <div class="lastfm-widget" style="max-width: 450px; padding: 0; background: transparent; border: none; box-shadow: none;">
-                    <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank" style="display: block; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);">
+                <div class="spotify-widget">
+                    <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank">
                         <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=mrfpf7omss9rmtuuebmymartk&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&profanity=false&mode=dark&bar_color=53b14f&bar_color_cover=false"
-                             alt="Spotify Currently Playing"
-                             style="width: 100%; height: auto; display: block; border-radius: 16px;">
+                             alt="Spotify Currently Playing" loading="lazy" style="width:100%; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.5);">
                     </a>
                 </div>
-                <hr class="divider">
             </section>
 
-            <section class="section">
+            <hr class="divider reveal">
+
+            <!-- Last.fm Recently Played -->
+            <!-- EDIT HERE: Change Last.fm username or count -->
+            <section class="section reveal">
                 <h2 class="section-title">RECENTLY PLAYED ON LAST.FM</h2>
                 <div class="lastfm-widget">
-                    <img src="https://lastfm-recently-played.vercel.app/api?user=Virenvo&count=10"
-                         alt="Recently Played on Last.fm"
-                         class="lastfm-image">
+                    <a href="https://www.last.fm/it/user/Virenvo" target="_blank">
+                        <img src="https://lastfm-recently-played.vercel.app/api?user=Virenvo&count=10"
+                             alt="Recently Played on Last.fm" loading="lazy" class="lastfm-image">
+                    </a>
                 </div>
             </section>
+            <hr class="divider reveal">
+            <hr class="divider reveal">
 
-            <!-- Footer -->
+            <!-- ==================== FOOTER ==================== -->
+            <!-- EDIT HERE: Update the date when you make changes -->+
+             <center>
             <footer class="footer">
-                <p>Last change made : 01/01/2026 06:03pm CET✨</p>
+                <p>Last change made: 01/01/2026 09:27pm CET ✨</p>
             </footer>
+                </center>
         </div>
     </main>
 
-    <!-- Floating Character -->
-    <div class="floating-character">
-        <img src="https://cdn.discordapp.com/attachments/901178528798756864/1456305174955163863/2499d94f8a2e18b2665361df7b409335.png?ex=6957e162&is=69568fe2&hm=8456d24ca9ed4599236138e4367628c632a7b6b4dc73a523f1535705949ed7aa&" alt="cute anime mascot">
-    </div>
-
-    <!-- Scripts -->
+    <!-- ==================== ALL SCRIPTS ==================== -->
     <script>
+        /* PARTICLES.JS BACKGROUND */
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -174,39 +201,29 @@
                 opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
                 size: { value: 3, random: true },
                 line_linked: { enable: true, distance: 150, color: "#E246A1", opacity: 0.2, width: 1 },
-                move: { enable: true, speed: 1.5, direction: "none", random: true, straight: false, out_mode: "out" }
+                move: { enable: true, speed: 1.5, random: true, out_mode: "out" }
             },
             interactivity: {
                 detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true }
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
             },
             retina_detect: true
         });
 
-        // Theme Toggle
-        const toggle = document.querySelector('.theme-toggle');
-        const icon = document.getElementById('theme-icon');
+        /* THEME TOGGLE (Dark/Light Mode) */
+        const themeToggle = document.querySelector('.theme-toggle');
         const body = document.body;
 
         if (localStorage.getItem('theme') === 'light') {
             body.classList.add('light-mode');
-            icon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
-        } else {
-            icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
         }
 
-        toggle.addEventListener('click', () => {
+        themeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            if (body.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
-                icon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
-            } else {
-                localStorage.setItem('theme', 'dark');
-                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-            }
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
         });
 
-        // Glowing Cursor
+        /* GLOWING CUSTOM CURSOR */
         const cursor = document.getElementById('glowing-cursor');
         let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
         const easing = 0.25;
@@ -219,52 +236,39 @@
         function animateCursor() {
             currentX += (targetX - currentX) * easing;
             currentY += (targetY - currentY) * easing;
-            cursor.style.left = currentX + 'px';
-            cursor.style.top = currentY + 'px';
+            cursor.style.left = `${currentX}px`;
+            cursor.style.top = `${currentY}px`;
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
 
-        document.body.addEventListener('mouseenter', () => cursor.style.opacity = '1');
-        document.body.addEventListener('mouseleave', () => cursor.style.opacity = '0');
-
-        document.querySelectorAll('a, .pill, .social-btn, .avatar-wrapper, .theme-toggle').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
-                cursor.style.boxShadow = '0 0 30px #E246A1, 0 0 60px rgba(226, 70, 161, 1), 0 0 90px rgba(226, 70, 161, 0.6)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.boxShadow = '0 0 20px #E246A1, 0 0 40px rgba(226, 70, 161, 0.8), 0 0 60px rgba(226, 70, 161, 0.4)';
-            });
-        });
-
-        // 3D Avatar Tilt
+        /* 3D AVATAR TILT EFFECT */
         const avatarWrapper = document.querySelector('.avatar-wrapper');
         const avatar = document.querySelector('.avatar');
+
         if (avatarWrapper && avatar) {
             avatarWrapper.addEventListener('mousemove', (e) => {
                 const rect = avatarWrapper.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateY = ((x - centerX) / centerX) * 20;
-                const rotateX = ((centerY - y) / centerY) * 20;
+                const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 20;
+                const rotateX = ((rect.height / 2 - y) / (rect.height / 2)) * 20;
                 avatar.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.08)`;
             });
+
             avatarWrapper.addEventListener('mouseleave', () => {
                 avatar.style.transform = 'rotateY(0) rotateX(0) scale(1)';
             });
         }
 
-        // Click Particles
+        /* CLICK PARTICLE EFFECT */
         const clickCanvas = document.getElementById('click-effect');
         const clickCtx = clickCanvas.getContext('2d');
         clickCanvas.width = window.innerWidth;
         clickCanvas.height = window.innerHeight;
 
         let clickParticles = [];
+
         document.addEventListener('click', (e) => {
             const x = e.clientX, y = e.clientY;
             for (let i = 0; i < Math.floor(Math.random() * 7 + 12); i++) {
@@ -284,13 +288,14 @@
             clickCanvas.height = window.innerHeight;
         });
 
-        function animateClickEffect() {
+        function animateClickParticles() {
             clickCtx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
             clickParticles.forEach((p, i) => {
                 p.life--;
                 p.x += p.velocityX;
                 p.y += p.velocityY;
                 p.radius *= 0.95;
+
                 clickCtx.beginPath();
                 clickCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 clickCtx.fillStyle = p.color;
@@ -298,34 +303,80 @@
                 clickCtx.shadowColor = p.color;
                 clickCtx.globalAlpha = p.life / 30;
                 clickCtx.fill();
+
                 if (p.life <= 0 || p.radius <= 0.5) clickParticles.splice(i, 1);
             });
             clickCtx.globalAlpha = 1;
-            requestAnimationFrame(animateClickEffect);
+            requestAnimationFrame(animateClickParticles);
         }
-        animateClickEffect();
+        animateClickParticles();
 
-        // Back to Top Button
-        const backToTopBtn = document.getElementById('back-to-top');
-
+        /* BACK TO TOP BUTTON */
+        const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
+            backToTop.classList.toggle('visible', window.scrollY > 400);
         });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        /* SCROLL REVEAL ANIMATION */
+        const reveals = document.querySelectorAll('.reveal');
+        function checkReveal() {
+            const trigger = window.innerHeight * 0.85;
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                el.classList.toggle('visible', top < trigger);
             });
-        });
+        }
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+
+        /* SNOW FALLING EFFECT */
+        const snowCanvas = document.getElementById('snow-canvas');
+        const snowCtx = snowCanvas.getContext('2d');
+
+        function resizeSnow() {
+            snowCanvas.width = window.innerWidth;
+            snowCanvas.height = window.innerHeight;
+        }
+        resizeSnow();
+        window.addEventListener('resize', resizeSnow);
+
+        let snowflakes = [];
+
+        function createSnowflake() {
+            snowflakes.push({
+                x: Math.random() * snowCanvas.width,
+                y: -10,
+                size: Math.random() * 3 + 1,
+                speed: Math.random() * 1 + 0.5,
+                drift: Math.random() * 0.5 - 0.25
+            });
+        }
+
+        function drawSnow() {
+            snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+            const color = document.body.classList.contains('light-mode')
+                ? "rgba(0,0,0,0.8)" : "rgba(255,255,255,0.9)";
+            snowCtx.fillStyle = color;
+
+            snowflakes.forEach((flake, i) => {
+                snowCtx.beginPath();
+                snowCtx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+                snowCtx.fill();
+
+                flake.y += flake.speed;
+                flake.x += flake.drift;
+
+                if (flake.y > snowCanvas.height) snowflakes.splice(i, 1);
+            });
+
+            if (snowflakes.length < 120) createSnowflake();
+            requestAnimationFrame(drawSnow);
+        }
+        drawSnow();
     </script>
 
-    <!-- Oneko Cat (only 1 cat, no duplicates) -->
+    <!-- ONEKO CAT (follows mouse) -->
     <script src="oneko.js"></script>
-
 </body>
 </html>

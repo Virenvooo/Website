@@ -1,25 +1,27 @@
-/* ========================================
-   Vir's Personal Website - Clean & Modifiable
-   ======================================== */
+/* ============================================================
+   VIR'S PERSONAL WEBSITE — CLEAN, OPTIMIZED & OPEN SOURCE
+   ============================================================ */
 
-/* ----- EDIT HERE: Main Colors ----- */
+/* ==================== 1. EDIT HERE: MAIN COLORS ==================== */
 :root {
-    --primary: #E246A1;      /* Main purple/pink */
-    --bg-dark: #0a001f;      /* Dark background */
-    --text-light: #e0d0ff;   /* Text in dark mode */
+    --primary: #E246A1;           /* Main pink/purple accent */
+    --bg-dark: #0a001f;           /* Dark mode background */
+    --text-light: #e0d0ff;        /* Text in dark mode */
     --card-dark: rgba(20, 15, 40, 0.4);
     --card-light: rgba(255, 255, 255, 0.7);
 }
 
+/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ----- Base Styles ----- */
+/* ==================== 2. BASE STYLES ==================== */
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
@@ -28,21 +30,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.6s ease, color 0.6s ease;
     cursor: none;
+    transition: background 0.6s ease, color 0.6s ease;
 }
 
-#particles-js {
+/* Background Layers */
+#particles-js,
+#snow-canvas,
+#click-effect {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    inset: 0;
     pointer-events: none;
+    z-index: 0;
 }
+#snow-canvas { z-index: 2; }
+#click-effect { z-index: 9998; }
 
-/* ----- Layout ----- */
+/* ==================== 3. LAYOUT ==================== */
 .container {
     width: 100%;
     min-height: 100vh;
@@ -53,33 +57,31 @@ body {
 }
 
 .card {
+    position: relative;
     background: var(--card-dark);
     backdrop-filter: blur(12px);
     border-radius: 30px;
-    padding: 40px 35px;
+    padding: 120px 35px 40px; /* Extra top padding for top banner/avatar */
     width: 90%;
     max-width: 900px;
     margin: 30px auto;
     border: 2px solid rgba(226, 70, 161, 0.5);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(226, 70, 161, 0.2);
-    animation: float 8s ease-in-out infinite, fadeInUp 1.2s ease-out forwards, neonPulse 4s ease-in-out infinite alternate;
-    transition: all 0.6s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 70, 161, 0.2);
+    animation: float 8s ease-in-out infinite, neonPulse 4s ease-in-out infinite alternate;
 }
 
-/* ----- Profile Section ----- */
+/* ==================== 4. PROFILE SECTION (FIXED CENTERED) ==================== */
+/* EDIT HERE: Adjust spacing, avatar size, etc. */
 .profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-/* 3D Avatar Tilt */
 .avatar-wrapper {
     perspective: 1000px;
     width: 150px;
@@ -93,50 +95,38 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--primary);
-    box-shadow: 0 0 20px rgba(226, 70, 161, 0.5), 0 0 40px rgba(226, 70, 161, 0.3);
+    box-shadow: 0 0 20px rgba(226, 70, 161, 0.5);
     transition: transform 0.1s ease-out, box-shadow 0.4s ease;
     transform-style: preserve-3d;
 }
 
 .avatar-wrapper:hover .avatar {
-    box-shadow: 0 0 40px rgba(226, 70, 161, 0.9), 0 0 80px rgba(226, 70, 161, 0.6), 0 0 120px rgba(226, 70, 161, 0.4);
+    box-shadow: 0 0 40px rgba(226, 70, 161, 0.9);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .username {
     color: var(--primary);
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
 }
 
 .name {
     font-size: 3rem;
-    margin-bottom: 1rem;
     color: #ffffff;
 }
 
-/* Typing Animation */
-.typewriter {
-    overflow: hidden;
-    border-right: 0.15em solid var(--primary);
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 0.15em;
-    animation: typing 2s steps(3, end) forwards, blink-caret 0.75s step-end infinite;
-    display: inline-block;
-    width: 0;
-}
-
-.typewriter::after {
-    content: '';
-    animation: remove-cursor 0.1s forwards 2.5s;
-}
-
+/* Badges */
 .badges {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
     justify-content: center;
-    margin-bottom: 1.5rem;
 }
 
 .badge {
@@ -145,23 +135,41 @@ body {
     border-radius: 999px;
     font-size: 0.9rem;
     border: 1px solid var(--primary);
+    transition: all 0.35s ease;
+}
+
+.badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(226, 70, 161, 0.35);
+    box-shadow: 0 0 12px rgba(226, 70, 161, 0.6);
+}
+
+/* Bio */
+.bio-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bio-title {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .bio {
     font-size: 1.1rem;
     line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
 }
 
-/* ----- Sections & Layout ----- */
+/* ==================== 5. GENERAL SECTIONS ==================== */
 .divider {
     border-top: 1px solid rgba(226, 70, 161, 0.5);
     width: 60%;
     max-width: 500px;
     margin: 2.5rem auto;
-    transition: border-top-color 0.6s ease;
 }
 
 .section {
@@ -175,26 +183,9 @@ body {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: relative;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -8px;
-    left: 50%;
-    background: var(--primary);
-    transition: all 0.4s ease;
-    box-shadow: 0 0 10px var(--primary);
-}
-
-.section-title:hover::after {
-    width: 80%;
-    left: 10%;
-}
-
+/* Interests Pills */
 .pills {
     display: flex;
     flex-wrap: wrap;
@@ -206,19 +197,17 @@ body {
     background: rgba(226, 70, 161, 0.1);
     padding: 0.8rem 1.5rem;
     border-radius: 999px;
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(226, 70, 161, 0.3);
-    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.1);
     transition: all 0.4s ease;
 }
 
 .pill:hover {
     transform: translateY(-8px) scale(1.1);
     background: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 15px 35px rgba(226, 70, 161, 0.4), 0 0 30px rgba(226, 70, 161, 0.5);
+    box-shadow: 0 15px 35px rgba(226, 70, 161, 0.4);
 }
 
-/* Social Buttons */
+/* Social Links */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -238,235 +227,69 @@ body {
     gap: 0.5rem;
     text-decoration: none;
     color: var(--text-light);
-    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.2);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s ease;
 }
 
 .social-btn:hover {
     transform: translateY(-10px) scale(1.1);
     background: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 20px 40px rgba(226, 70, 161, 0.5), 0 0 40px rgba(226, 70, 161, 0.6);
+    box-shadow: 0 20px 40px rgba(226, 70, 161, 0.5);
 }
 
 .social-icon {
     width: 32px;
     height: 32px;
-    filter: brightness(0) saturate(100%) invert(61%) sepia(87%) saturate(2828%) hue-rotate(287deg) brightness(96%) contrast(104%);
-    transition: all 0.4s ease;
 }
 
-.social-btn:hover .social-icon {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(180deg) brightness(120%) contrast(110%);
-    transform: scale(1.2);
-}
-
-/* Widgets */
+/* ==================== 6. WIDGETS ==================== */
 .discord-widget,
-.lastfm-widget {
+.lastfm-widget,
+.spotify-widget,
+.anilist-wrapper {
     max-width: 450px;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(226, 70, 161, 0.3);
-    background: rgba(20, 15, 40, 0.6);
-    backdrop-filter: blur(10px);
 }
 
 .discord-banner-widget,
-.lastfm-image {
+.lastfm-image,
+.anilist-img {
     width: 100%;
+    height: auto;
+    display: block;
     border-radius: 16px;
     transition: transform 0.5s ease;
 }
 
-.lastfm-widget:hover img,
-.discord-widget:hover img {
+.discord-widget:hover img,
+.lastfm-widget:hover img {
     transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(226, 70, 161, 0.6);
 }
 
-/* Footer */
-.footer {
-    margin-top: 4rem;
-    padding: 1.5rem 1rem 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: rgba(224, 208, 255, 0.6);
-    border-top: 1px solid rgba(226, 70, 161, 0.3);
-    transition: all 0.6s ease;
-}
-
-.footer a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.footer a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(226, 70, 161, 0.8);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 3ch; } /* Adjust if name is longer than "Vir" */
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--primary); }
-}
-
-@keyframes remove-cursor {
-    to { border-right: none; }
-}
-
-@keyframes neonPulse {
-    from {
-        border-color: rgba(226, 70, 161, 0.5);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 70, 161, 0.2);
-    }
-    to {
-        border-color: var(--primary);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(226, 70, 161, 0.5), 0 0 60px rgba(226, 70, 161, 0.3);
-    }
-}
-
-/* Glowing Cursor */
-#glowing-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, var(--primary) 0%, rgba(226, 70, 161, 0.6) 40%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px var(--primary), 0 0 40px rgba(226, 70, 161, 0.8), 0 0 60px rgba(226, 70, 161, 0.4);
-    transition: transform 0.1s ease-out, opacity 0.3s ease;
-    opacity: 0;
-    mix-blend-mode: screen;
-}
-
-body:hover #glowing-cursor {
-    opacity: 1;
-}
-
-/* Click Effect Canvas */
-#click-effect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9998;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(10, 0, 31, 0.8);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, var(--primary), #c0398b);
-    border-radius: 10px;
-    border: 2px solid rgba(20, 15, 40, 0.8);
-    box-shadow: 0 0 10px rgba(226, 70, 161, 0.6);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ffffff, var(--primary));
-    box-shadow: 0 0 20px rgba(226, 70, 161, 1);
-}
-
-/* Light Mode */
-body.light-mode {
-    background: #f0e6ff;
-    color: #2d1b69;
-}
-
-body.light-mode .card {
-    background: var(--card-light);
-    border-color: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 20px rgba(226, 70, 161, 0.15);
-}
-
-body.light-mode .username,
-body.light-mode .section-title {
-    color: var(--primary);
-}
-
-body.light-mode .bio,
-body.light-mode .pill,
-body.light-mode .social-btn,
-body.light-mode .badge {
-    color: #4c3398;
-}
-
-body.light-mode .badge {
-    background: rgba(226, 70, 161, 0.15);
-    border-color: var(--primary);
-}
-
-body.light-mode .pill:hover,
-body.light-mode .social-btn:hover {
-    color: var(--primary);
-    background: rgba(226, 70, 161, 0.25);
-}
-
-body.light-mode .divider {
-    border-top-color: rgba(226, 70, 161, 0.3);
-}
-
-body.light-mode .avatar {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(226, 70, 161, 0.4);
-}
-
-body.light-mode .typewriter {
-    border-right-color: var(--primary);
-}
-
-body.light-mode .footer {
-    color: rgba(45, 27, 105, 0.6);
-    border-top-color: rgba(226, 70, 161, 0.3);
-}
-
-body.light-mode .footer a:hover {
-    color: #2d1b69;
-    text-shadow: 0 0 10px rgba(226, 70, 161, 0.5);
-}
-
-body.light-mode ::-webkit-scrollbar-track {
-    background: rgba(240, 230, 255, 0.8);
-}
-
-body.light-mode ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, var(--primary), #d460b0);
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
+/* ==================== 7. UI ELEMENTS ==================== */
+/* Top Banner */
+.top-banner {
     position: fixed;
     top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: rgba(20, 15, 40, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 80px;
     right: 20px;
     z-index: 1000;
     background: rgba(20, 15, 40, 0.6);
@@ -478,210 +301,20 @@ body.light-mode ::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: all 0.5s ease;
-    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.3);
 }
 
 .theme-toggle:hover {
     transform: scale(1.15);
-    box-shadow: 0 0 35px rgba(226, 70, 161, 0.7);
 }
 
-.theme-toggle svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--primary);
-    transition: transform 0.8s ease;
-}
-
-body.light-mode .theme-toggle {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: var(--primary);
-}
-
-body.light-mode .theme-toggle svg {
-    transform: rotate(360deg);
-}
-
-/* Hide default cursor on interactive elements */
-.lastfm-widget,
-.spotify-widget,
-.lastfm-widget *,
-.spotify-widget *,
-.discord-widget,
-.discord-widget *,
-.social-btn,
-.social-btn *,
-.pill,
-.avatar-wrapper,
-.theme-toggle {
-    cursor: none !important;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .profile {
-        flex-direction: column;
-    }
-    .name {
-        font-size: 2.5rem;
-    }
-    .card {
-        padding: 2.5rem 1.5rem;
-    }
-}
-
-/* ================================= EDIT HERE: ANILIST WIDGET ================================= */
-/* 1. SIZE: Change max-width (450px=phone-friendly, 650px=tablet, 1000px=full wide) */
-/* 2. COLORS: Matches your pink theme automatically via existing classes */
-/* 3. MOBILE: Already responsive - auto-scales down */
-/* ================================================================== */
-.anilist-widget {
-    max-width: 650px;              /* ← EDIT: 450px (compact) | 1000px (full width) */
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(226, 70, 161, 0.3);  /* ← EDIT: Matches your pink theme */
-    background: rgba(20, 15, 40, 0.6);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.anilist-widget:hover {
-    transform: translateY(-5px);   /* ← EDIT: Change hover lift effect */
-    box-shadow: 0 15px 40px rgba(226, 70, 161, 0.6);  /* Pink glow */
-}
-
-.anilist-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    transition: transform 0.5s ease;
-}
-
-.anilist-widget:hover .anilist-image {
-    transform: scale(1.03);        /* ← EDIT: Hover zoom (1.02 = subtle, 1.05 = dramatic) */
-}
-
-/* Light mode compatibility (auto-adjusts) */
-body.light-mode .anilist-widget {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(226, 70, 161, 0.4);
-}
-/* ================================================================== */
-
-/* AniList widget styling - reusing discord-widget look */
-.anilist-banner-widget {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    transition: transform 0.5s ease;
-}
-
-.discord-widget:hover .anilist-banner-widget {
-    transform: scale(1.03);
-}
-
-/* Floating anime character - bottom right corner like catbox.moe */
-.floating-character {
-    position: fixed;          /* stays in place when scrolling */
-    bottom: -5px;             /* distance from bottom - edit this */
-    right: -5px;              /* distance from right - edit this */
-    z-index: 999;             /* on top of other content */
-    pointer-events: none;     /* so it doesn't block clicks (optional) */
-    opacity: 0.85;            /* slightly transparent - looks nicer */
-    transition: all 0.4s ease; /* smooth hover if you want */
-}
-
-.floating-character img {
-    width: 360px;             /* ← change size here */
-    height: auto;
-    filter: drop-shadow(0 10px 20px rgba(226, 70, 161, 0.6)); /* pink glow to match your theme */
-}
-
-/* Optional: slight hover/bounce effect */
-.floating-character:hover {
-    transform: translateY(-10px);   /* lifts up a bit */
-    opacity: 1;
-}
-
-/* Avatar cutting the top border exactly in half */
-.avatar-border-cut {
-    position: absolute;
-    top: -75px;                  /* Half of avatar height (150px / 2 = 75px) */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-.avatar-border-cut .avatar-wrapper {
-    width: 150px;
-    height: 150px;
-    margin: 0;
-}
-
-/* Make card relative and add top padding so content starts below the overlapping avatar */
-.card {
-    position: relative;          /* Important for absolute positioning */
-    padding-top: 100px;          /* Gives space for the bottom half of avatar + some breathing room */
-}
-
-/* Center everything in profile */
-.profile-hero {
-    position: relative;
-    text-align: center;
-}
-
-.profile-info,
-.bio-section {
-    text-align: center;
-}
-
-.bio-title {
-    display: inline-block;
-}
-
-/* Top banner - always visible on top of everything */
-.top-banner {
-    position: fixed;
-    top: 20px;                  /* Distance from top - adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10000;             /* Super high so it's above particles, card, toggle, etc. */
-    background: rgba(20, 15, 40, 0.6);
-    backdrop-filter: blur(10px);
-    color: var(--text-light);
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid var(--primary);
-    font-size: 0.95rem;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.3);
-    pointer-events: none;       /* So it doesn't block clicks */
-    animation: fadeIn 1.5s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-/* Optional: Push theme toggle down a bit so it doesn't overlap */
-.theme-toggle {
-    top: 80px;                  /* Was 20px — now lower to make room for banner */
-}
-
-/* Back to Top Button */
+/* Back to Top */
 #back-to-top {
     position: fixed;
     bottom: 30px;
-    right: 30px;              /* Adjust if it overlaps your Oneko cat (e.g., right: 100px) */
-    z-index: 998;             /* Below glowing cursor and top banner */
+    right: 30px;
+    z-index: 998;
     background: rgba(226, 70, 161, 0.3);
-    backdrop-filter: blur(10px);
     border: 2px solid var(--primary);
     border-radius: 50%;
     width: 60px;
@@ -689,62 +322,169 @@ body.light-mode .anilist-widget {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary);
-    cursor: pointer;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease;
-    box-shadow: 0 4px 20px rgba(226, 70, 161, 0.4);
 }
 
 #back-to-top.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
 }
 
 #back-to-top:hover {
     background: rgba(226, 70, 161, 0.6);
     transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 10px 30px rgba(226, 70, 161, 0.7);
-    animation: bounce 0.6s ease infinite alternate;
-    color: #ffffff;
 }
 
-#back-to-top svg {
-    transition: transform 0.3s ease;
+/* Floating Character */
+.floating-character {
+    position: fixed;
+    bottom: -5px;
+    right: -50px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.85;
 }
 
-#back-to-top:hover svg {
-    transform: translateY(-4px);
+.floating-character img {
+    width: 360px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(226, 70, 161, 0.6));
 }
 
-/* Bounce animation */
-@keyframes bounce {
-    from { transform: translateY(-8px) scale(1.1); }
-    to { transform: translateY(-12px) scale(1.1); }
+.floating-character:hover {
+    opacity: 1;
+    transform: translateY(-10px);
 }
 
-/* Light mode adjustments */
-body.light-mode #back-to-top {
-    background: rgba(226, 70, 161, 0.2);
-    border-color: var(--primary);
-    box-shadow: 0 4px 20px rgba(226, 70, 161, 0.2);
+/* Glowing Cursor */
+#glowing-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px var(--primary), 0 0 40px rgba(226, 70, 161, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-body.light-mode #back-to-top:hover {
-    background: rgba(226, 70, 161, 0.4);
+body:hover #glowing-cursor {
+    opacity: 1;
 }
 
-.anilist-wrapper {
-    display: flex;
-    justify-content: center;   /* centers horizontally */
+/* ==================== 8. LIGHT MODE ==================== */
+body.light-mode {
+    background: #f7f2ff;
+    color: #2d1b69;
 }
 
-.anilist-img {
-    width: 1000px;              /* make it smaller */
-    max-width: 100%;           /* prevent overflow */
-    height: auto;              /* keep proportions */
-    display: block;
-    margin: 0 auto;            /* extra centering safety */
+body.light-mode .card {
+    background: var(--card-light);
+    border-color: rgba(226, 70, 161, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .username,
+body.light-mode .section-title,
+body.light-mode .name {
+    color: #2d1b69;
+}
+
+body.light-mode .badge,
+body.light-mode .pill {
+    background: rgba(226, 70, 161, 0.15);
+    border-color: rgba(226, 70, 161, 0.4);
+}
+
+body.light-mode .social-btn {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== 9. ANIMATIONS ==================== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes neonPulse {
+    from { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 70, 161, 0.2); }
+    to { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 60px rgba(226, 70, 161, 0.5); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gradient Text (Name) */
+.gradient-text {
+    background: linear-gradient(90deg, #ffcc33, #ff9933, #ff6600, #ff9933, #ffcc33);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: nostalgicFlow 5s ease infinite;
+}
+
+@keyframes nostalgicFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==================== 10. RESPONSIVE ==================== */
+@media (max-width: 600px) {
+    .card {
+        padding: 100px 1.5rem 2rem;
+    }
+    .avatar-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+    .floating-character img {
+        width: 200px;
+    }
+    .social-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+/* ==================== HIDE DEFAULT CURSOR ON ALL INTERACTIVE ELEMENTS ==================== */
+/* This ensures your glowing cursor is the only one visible when hovering links, buttons, pills, badges, widgets, etc. */
+
+a, button, .pill, .badge, .social-btn, .avatar-wrapper, .theme-toggle,
+.discord-widget, .lastfm-widget, .spotify-widget, .anilist-wrapper,
+#back-to-top, .floating-character {
+    cursor: none !important;
+}
+
+/* Also hide on their children (icons, images, spans inside) */
+a *, button *, .pill *, .badge *, .social-btn *, .avatar-wrapper *,
+.theme-toggle *, .discord-widget *, .lastfm-widget *, .spotify-widget *,
+.anilist-wrapper *, #back-to-top *, .floating-character * {
+    cursor: none !important;
+}
+
+/* Optional: Hide default cursor on the entire body (your glowing cursor will show instead) */
+body {
+    cursor: none !important;
 }
