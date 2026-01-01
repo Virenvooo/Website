@@ -735,3 +735,16 @@ body.light-mode #back-to-top {
 body.light-mode #back-to-top:hover {
     background: rgba(226, 70, 161, 0.4);
 }
+
+.anilist-wrapper {
+    display: flex;
+    justify-content: center;   /* centers horizontally */
+}
+
+.anilist-img {
+    width: 1000px;              /* make it smaller */
+    max-width: 100%;           /* prevent overflow */
+    height: auto;              /* keep proportions */
+    display: block;
+    margin: 0 auto;            /* extra centering safety */
+}
