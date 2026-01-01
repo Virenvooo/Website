@@ -115,17 +115,29 @@ body {
         typing 2s steps(3, end) forwards,
         blink-caret 0.75s step-end infinite;
     display: inline-block;
-    width: 0;
-    animation-delay: 0.8s;
-    opacity: 0;
-    animation-fill-mode: forwards;
+    width: 0;            /* ← Critical: starts hidden */
+    opacity: 1;          /* Keep visible once typing starts */
 }
 
+/* Make sure the animation actually reveals the text */
 .typewriter::after {
     content: '';
     animation: remove-cursor 0.1s forwards 2.5s;
 }
 
+@keyframes typing {
+    from { width: 0; }
+    to { width: 3ch; }   /* "Vir" = 3 characters */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #E246A1; }
+}
+
+@keyframes remove-cursor {
+    to { border-right: none; }
+}
 .badges {
     display: flex;
     flex-wrap: wrap;
