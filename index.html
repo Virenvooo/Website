@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vir's Website</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Particles.js from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <!-- Fixed Particles Background -->
     <div id="particles-js"></div>
 
-    <!-- Theme Toggle -->
+    <!-- Dark/Light Mode Toggle Button -->
     <button class="theme-toggle" aria-label="Toggle dark/light mode">
         <svg id="theme-icon" viewBox="0 0 24 24">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -20,19 +22,28 @@
     <!-- Glowing Custom Cursor -->
     <div id="glowing-cursor"></div>
 
-    <!-- Click Effect Canvas -->
+    <!-- Click Particle Effect Canvas -->
     <canvas id="click-effect"></canvas>
 
+    <!-- Main Content -->
     <main class="container">
         <div class="card">
+            <!-- ==================== PROFILE SECTION ==================== -->
             <section class="profile">
-                <!-- 3D Avatar Tilt Wrapper -->
+                <!-- 3D Tilt Avatar -->
                 <div class="avatar-wrapper">
+                    <!-- EDIT HERE: Change your avatar image URL -->
                     <img src="https://media.discordapp.net/attachments/901178528798756864/1456183073564524554/ebd907b9d268ab18b7fa6b4afc0574c9.png?ex=69576fab&is=69561e2b&hm=a6299ac3edac2b43a04f384469d55a0f8db77c775e176f86ce6cc184ede0d5f0&=&format=webp&quality=lossless" alt="Avatar" class="avatar">
                 </div>
+
                 <div class="info">
+                    <!-- EDIT HERE: Your username (e.g. Discord tag) -->
                     <p class="username">._vir</p>
+
+                    <!-- EDIT HERE: Your name (typing animation will auto-adjust length) -->
                     <h1 class="name typewriter">Vir</h1>
+
+                    <!-- EDIT HERE: Add/remove badges -->
                     <div class="badges">
                         <span class="badge">14-Years-Old</span>
                         <span class="badge">🎂 Oct 13</span>
@@ -40,6 +51,8 @@
                         <span class="badge">ISTP-T</span>
                         <span class="badge">🇮🇹 IT</span>
                     </div>
+
+                    <!-- EDIT HERE: Your bio text -->
                     <p class="bio">
                         Hey! Hope you're doing well, i'm Vir but you can call me whatever you want if i like it :D.<br>
                         I'm into gaming, tech, music and animes!
@@ -49,9 +62,11 @@
 
             <hr class="divider">
 
+            <!-- ==================== INTERESTS ==================== -->
             <section class="section">
                 <h2 class="section-title">INTERESTS</h2>
                 <div class="pills">
+                    <!-- EDIT HERE: Change or add interests -->
                     <span class="pill">🎵 Music</span>
                     <span class="pill">🍥 Animanga</span>
                     <span class="pill">💻 Tech</span>
@@ -60,9 +75,11 @@
                 <hr class="divider">
             </section>
 
+            <!-- ==================== SOCIAL LINKS ==================== -->
             <section class="section">
                 <h2 class="section-title">CONNECT</h2>
                 <div class="social-grid">
+                    <!-- EDIT HERE: Add/remove social links -->
                     <a href="https://discord.com/users/823914932185202728" class="social-btn">
                         <img src="https://cdn.simpleicons.org/discord" alt="Discord" class="social-icon">
                         <span>Discord</span>
@@ -87,9 +104,11 @@
                 <hr class="divider">
             </section>
 
+            <!-- ==================== WIDGETS ==================== -->
             <section class="section">
                 <h2 class="section-title">DISCORD STATUS</h2>
                 <div class="discord-widget">
+                    <!-- EDIT HERE: Change your Discord user ID -->
                     <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png" alt="Discord Status" class="discord-banner-widget">
                 </div>
                 <hr class="divider">
@@ -98,6 +117,7 @@
             <section class="section">
                 <h2 class="section-title">CURRENTLY PLAYING ON SPOTIFY</h2>
                 <div class="lastfm-widget" style="max-width: 450px; padding: 0; background: transparent; border: none; box-shadow: none;">
+                    <!-- EDIT HERE: Change your Spotify user ID -->
                     <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank" style="display: block; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);">
                         <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=mrfpf7omss9rmtuuebmymartk&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&profanity=false&mode=dark&bar_color=53b14f&bar_color_cover=false"
                              alt="Spotify Currently Playing"
@@ -110,6 +130,7 @@
             <section class="section">
                 <h2 class="section-title">RECENTLY PLAYED ON LAST.FM</h2>
                 <div class="lastfm-widget">
+                    <!-- EDIT HERE: Change your Last.fm username -->
                     <img src="https://lastfm-recently-played.vercel.app/api?user=Virenvo&count=10"
                          alt="Recently Played on Last.fm"
                          class="lastfm-image">
@@ -117,51 +138,34 @@
                 <hr class="divider">
             </section>
 
-            <!-- Footer -->
+            <!-- ==================== FOOTER ==================== -->
             <footer class="footer">
                 <p>Open source on my <a href="https://github.com/Virenvooo/" target="_blank">GitHub</a> — feel free to use it, modify it, or get inspired! ✨</p>
             </footer>
         </div>
     </main>
 
-    <!-- Scripts -->
+    <!-- ==================== ALL SCRIPTS ==================== -->
     <script>
-        // Particles.js
+        // === Particles.js Background ===
         particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#E246A1" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
-                "size": { "value": 3, "random": true },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#E246A1",
-                    "opacity": 0.2,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1.5,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out"
-                }
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#E246A1" },
+                shape: { type: "circle" },
+                opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#E246A1", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 1.5, direction: "none", random: true, straight: false, out_mode: "out" }
             },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "repulse" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                }
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true }
             },
-            "retina_detect": true
+            retina_detect: true
         });
 
-        // Theme Toggle
+        // === Theme Toggle (Dark/Light Mode) ===
         const toggle = document.querySelector('.theme-toggle');
         const icon = document.getElementById('theme-icon');
         const body = document.body;
@@ -184,7 +188,7 @@
             }
         });
 
-        // Glowing Custom Cursor
+        // === Glowing Custom Cursor ===
         const cursor = document.getElementById('glowing-cursor');
         let currentX = 0;
         let currentY = 0;
@@ -212,6 +216,7 @@
         document.body.addEventListener('mouseenter', () => cursor.style.opacity = '1');
         document.body.addEventListener('mouseleave', () => cursor.style.opacity = '0');
 
+        // Bigger glow on hover
         document.querySelectorAll('a, .pill, .social-btn, .avatar-wrapper, .theme-toggle').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
@@ -223,7 +228,7 @@
             });
         });
 
-        // 3D Avatar Tilt
+        // === 3D Avatar Tilt ===
         const avatarWrapper = document.querySelector('.avatar-wrapper');
         const avatar = document.querySelector('.avatar');
 
@@ -246,7 +251,7 @@
             });
         }
 
-        // Click Effect
+        // === Click Particle Burst ===
         const clickCanvas = document.getElementById('click-effect');
         const clickCtx = clickCanvas.getContext('2d');
         clickCanvas.width = window.innerWidth;
