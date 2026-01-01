@@ -572,3 +572,15 @@ body.light-mode .anilist-widget {
     border-color: rgba(226, 70, 161, 0.4);
 }
 /* ================================================================== */
+
+/* AniList widget styling - reusing discord-widget look */
+.anilist-banner-widget {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    transition: transform 0.5s ease;
+}
+
+.discord-widget:hover .anilist-banner-widget {
+    transform: scale(1.03);
+}
