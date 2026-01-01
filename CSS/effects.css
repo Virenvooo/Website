@@ -1,0 +1,97 @@
+.avatar:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 
+        0 0 50px rgba(226, 70, 161, 0.9),
+        0 0 100px rgba(226, 70, 161, 0.6),
+        0 0 150px rgba(226, 70, 161, 0.4);
+}
+
+.pill:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 
+        0 15px 35px rgba(226, 70, 161, 0.4),
+        0 0 30px rgba(226, 70, 161, 0.5);
+    background: rgba(226, 70, 161, 0.4);
+}
+
+.social-btn:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 
+        0 20px 40px rgba(226, 70, 161, 0.5),
+        0 0 40px rgba(226, 70, 161, 0.6);
+    background: rgba(226, 70, 161, 0.4);
+}
+
+.social-btn:hover .social-icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(180deg) brightness(120%) contrast(110%);
+    transform: scale(1.2);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -8px;
+    left: 50%;
+    background: #E246A1;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px #E246A1;
+}
+
+.section-title:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+.lastfm-widget:hover img,
+.discord-widget:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(226, 70, 161, 0.6);
+}
+
+#cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+}
+
+@media (pointer: coarse) {
+    #cursor-trail {
+        display: none;
+    }
+}
+
+/* 3D Tilt Avatar Wrapper */
+.avatar-wrapper {
+    perspective: 1000px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #E246A1;
+    box-shadow: 
+        0 0 20px rgba(226, 70, 161, 0.5),
+        0 0 40px rgba(226, 70, 161, 0.3);
+    transition: transform 0.1s ease-out, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+/* Enhanced glow on hover/interaction */
+.avatar-wrapper:hover .avatar {
+    box-shadow: 
+        0 0 40px rgba(226, 70, 161, 0.9),
+        0 0 80px rgba(226, 70, 161, 0.6),
+        0 0 120px rgba(226, 70, 161, 0.4);
+}

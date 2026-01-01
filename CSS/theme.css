@@ -1,0 +1,88 @@
+body.light-mode {
+    background: #f0e6ff;
+    color: #2d1b69;
+}
+
+body.light-mode .card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(226, 70, 161, 0.4);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(226, 70, 161, 0.15);
+}
+
+body.light-mode .username,
+body.light-mode .section-title {
+    color: #E246A1;
+}
+
+body.light-mode .bio,
+body.light-mode .pill,
+body.light-mode .social-btn,
+body.light-mode .badge {
+    color: #4c3398;
+}
+
+body.light-mode .badge {
+    background: rgba(226, 70, 161, 0.15);
+    border-color: #E246A1;
+}
+
+body.light-mode .pill:hover,
+body.light-mode .social-btn:hover {
+    color: #E246A1;
+    background: rgba(226, 70, 161, 0.25);
+}
+
+body.light-mode .divider {
+    border-top-color: rgba(226, 70, 161, 0.3);
+}
+
+body.light-mode .avatar {
+    border-color: #E246A1;
+    box-shadow: 0 0 20px rgba(226, 70, 161, 0.4);
+}
+
+body.light-mode .typewriter {
+    border-right-color: #E246A1;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(20, 15, 40, 0.6);
+    backdrop-filter: blur(10px);
+    border: 2px solid #E246A1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.3);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 35px rgba(226, 70, 161, 0.7);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: #E246A1;
+    transition: transform 0.8s ease;
+}
+
+body.light-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: #E246A1;
+}
+
+body.light-mode .theme-toggle svg {
+    transform: rotate(360deg);
+}

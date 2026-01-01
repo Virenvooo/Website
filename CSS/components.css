@@ -1,0 +1,130 @@
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #E246A1;
+    position: relative;
+    z-index: 2;
+    box-shadow: 
+        0 0 20px rgba(226, 70, 161, 0.5),
+        0 0 40px rgba(226, 70, 161, 0.3);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.username {
+    color: #E246A1;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.6s ease;
+}
+
+.name {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    transition: color 0.6s ease;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background: rgba(226, 70, 161, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    border: 1px solid #E246A1;
+    transition: all 0.6s ease;
+}
+
+.bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+    transition: color 0.6s ease;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #E246A1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.6s ease;
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.pill {
+    background: rgba(226, 70, 161, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    font-weight: 500;
+    color: #e0d0ff;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.1);
+}
+
+.social-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #e0d0ff;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.2);
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(61%) sepia(87%) saturate(2828%) hue-rotate(287deg) brightness(96%) contrast(104%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.discord-widget,
+.lastfm-widget {
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    background: rgba(20, 15, 40, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.discord-banner-widget,
+.lastfm-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+}

@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    width: 100%;
+}
+
+.card {
+    background: rgba(20, 15, 40, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 40px 35px;
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    border: 2px solid rgba(226, 70, 161, 0.5);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(226, 70, 161, 0.2);
+    transition: background 0.6s ease, border 0.6s ease, box-shadow 0.6s ease;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid rgba(226, 70, 161, 0.5);
+    width: 60%;
+    max-width: 500px;
+    margin: 2.5rem auto 2rem auto;
+    display: block;
+    transition: border-top-color 0.6s ease;
+}
+
+.section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .profile {
+        flex-direction: column;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+    .card {
+        padding: 2.5rem 1.5rem;
+    }
+}
