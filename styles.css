@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a001f;
+    color: #e0d0ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    width: 100%;
+}
+
+.card {
+    background: rgba(20, 15, 40, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 40px 35px;
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    border: 2px solid rgba(226, 70, 161, 0.5);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(226, 70, 161, 0.2);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #E246A1;
+    position: relative;
+    z-index: 2;
+    box-shadow: 
+        0 0 20px rgba(226, 70, 161, 0.5),
+        0 0 40px rgba(226, 70, 161, 0.3);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+    cursor: pointer;
+    animation: subtlePulse 6s ease-in-out infinite;
+}
+
+.avatar:hover {
+    box-shadow: 
+        0 0 40px rgba(226, 70, 161, 1),
+        0 0 80px rgba(226, 70, 161, 0.8),
+        0 0 120px rgba(226, 70, 161, 0.6);
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(226, 70, 161, 0.5),
+            0 0 40px rgba(226, 70, 161, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 0 25px rgba(226, 70, 161, 0.7),
+            0 0 50px rgba(226, 70, 161, 0.4);
+    }
+}
+
+.username {
+    color: #E246A1;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background: rgba(226, 70, 161, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    border: 1px solid #E246A1;
+}
+
+.bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid rgba(226, 70, 161, 0.5);
+    width: 60%;
+    max-width: 500px;
+    margin: 2.5rem auto 2rem auto;
+    display: block;
+}
+
+.section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #E246A1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.pill {
+    background: rgba(226, 70, 161, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    font-weight: 500;
+    color: #e0d0ff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.1);
+}
+
+.pill:hover {
+    background: rgba(226, 70, 161, 0.3);
+    border-color: #E246A1;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 
+        0 10px 25px rgba(226, 70, 161, 0.5),
+        0 0 20px rgba(226, 70, 161, 0.4);
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #e0d0ff;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(226, 70, 161, 0.2);
+}
+
+.social-btn:hover {
+    background: rgba(226, 70, 161, 0.3);
+    border-color: #E246A1;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 10px 25px rgba(226, 70, 161, 0.5),
+        0 0 20px rgba(226, 70, 161, 0.4);
+}
+
+.social-btn svg {
+    width: 32px;
+    height: 32px;
+    fill: #E246A1;
+}
+
+.lastfm-widget {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    background: rgba(20, 15, 40, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.lastfm-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.discord-widget {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(226, 70, 161, 0.3);
+}
+
+.discord-banner-widget {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .profile {
+        flex-direction: column;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+    .card {
+        padding: 2.5rem 1.5rem;
+    }
+}

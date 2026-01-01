@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vir's Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Simple Icons CDN for social icons -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/twitter.svg"></script>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <main class="container">
+        <div class="card">
+            <!-- Profile Header -->
+            <section class="profile">
+                <img src="https://media.discordapp.net/attachments/901178528798756864/1456183073564524554/ebd907b9d268ab18b7fa6b4afc0574c9.png?ex=69576fab&is=69561e2b&hm=a6299ac3edac2b43a04f384469d55a0f8db77c775e176f86ce6cc184ede0d5f0&=&format=webp&quality=lossless" alt="Avatar" class="avatar">
+                <div class="info">
+                    <p class="username">._vir</p>
+                    <h1 class="name">Vir</h1>
+                    <div class="badges">
+                        <span class="badge">14-Years-Old</span>
+                        <span class="badge">🎂 Oct 13</span>
+                        <span class="badge">he/him</span>
+                        <span class="badge">ISTP-T</span>
+                        <span class="badge">🇮🇹 IT</span>
+                    </div>
+                    <p class="bio">
+                        Hey! Hope you're doing well, i'm Vir but you can call me whatever you want if i like it :D.
+                        I'm into gaming, tech, music and animes!
+                    </p>
+                </div>
+            </section>
+
+            <hr class="divider">
+
+            <!-- Interests -->
+            <section class="section">
+                <h2 class="section-title">INTERESTS</h2>
+                <div class="pills">
+                    <span class="pill">🎵 Music</span>
+                    <span class="pill">🍥 Animanga</span>
+                    <span class="pill">💻 Tech</span>
+                    <span class="pill">🎮 Gaming</span>
+                </div>
+                <hr class="divider">
+            </section>
+
+            <!-- Connect / Social Links -->
+            <section class="section">
+                <h2 class="section-title">CONNECT</h2>
+                <div class="social-grid">
+                    <a href="https://discord.com/users/823914932185202728" class="social-btn"><svg><use href="https://cdn.discordapp.com/attachments/901178528798756864/1456200641033670826/discord.png?ex=69578007&is=69562e87&hm=92a877b4ec9fed0cd3b30fa16e295b4ea06349970b234b6e8eb6edf9fa4e87fb&"></use></svg><span>Discord</span></a>
+                    <a href="https://github.com/Virenvooo/" class="social-btn"><svg><use href="https://cdn.simpleicons.org/github"></use></svg><span>GitHub</span></a>
+                    <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" class="social-btn"><svg><use href="https://cdn.simpleicons.org/spotify"></use></svg><span>Spotify</span></a>
+                    <a href="https://www.last.fm/it/user/Virenvo" class="social-btn"><svg><use href="https://cdn.simpleicons.org/lastdotfm"></use></svg><span>Last.fm</span></a>
+                    <a href="https://anilist.co/user/Vir/" class="social-btn"><svg><use href="https://cdn.simpleicons.org/anilist"></use></svg><span>AniList</span></a>
+                </div>
+                <hr class="divider">
+            </section>
+
+            <!-- Discord Status (Real Widget) -->
+            <section class="section">
+                <h2 class="section-title">DISCORD STATUS</h2>
+                <div class="discord-widget">
+                    <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png" alt="Discord Status" class="discord-banner-widget">
+                </div>
+                <hr class="divider">
+            </section>
+
+            <!-- Last.fm Recently Played -->
+            <section class="section">
+                <h2 class="section-title">RECENTLY PLAYED ON LAST.FM</h2>
+                <div class="lastfm-widget">
+                    <img src="https://lastfm-recently-played.vercel.app/api?user=Virenvo&count=10" 
+                         alt="Recently Played on Last.fm" 
+                         class="lastfm-image">
+                </div>
+                <hr class="divider">
+            </section>
+        </div>
+    </main>
+
+    <!-- Particles.js Initialization -->
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#E246A1" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#E246A1",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
