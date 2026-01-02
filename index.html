@@ -59,14 +59,15 @@
                 </div>
 
                 <div class="profile-info">
+                    <p class="username">._vir</p>
                     <h1 class="name gradient-text">Vir</h1>
 
                     <div class="badges">
-                        <span class="badge">🧒 14-Years-Old</span>
+                        <span class="badge">14-Years-Old</span>
                         <span class="badge">🎂 Oct 13</span>
-                        <span class="badge">♂️ He/Him</span>
-                        <span class="badge">😒 ISTP-T</span>
-                        <span class="badge">🍕 Italy</span>
+                        <span class="badge">He/Him</span>
+                        <span class="badge">ISTP-T</span>
+                        <span class="badge">Italy</span>
                     </div>
                 </div>
 
@@ -81,8 +82,7 @@
 
             <hr class="divider reveal">
 
-            <!-- ==================== INTERESTS ==================== -->
-            <!-- EDIT HERE: Add/remove interests -->
+            <!-- Interests -->
             <section class="section reveal">
                 <h2 class="section-title">INTERESTS</h2>
                 <div class="pills">
@@ -95,8 +95,7 @@
 
             <hr class="divider reveal">
 
-            <!-- ==================== SOCIAL LINKS ==================== -->
-            <!-- EDIT HERE: Add/remove/change links -->
+            <!-- Links -->
             <section class="section reveal">
                 <h2 class="section-title">LINKS</h2>
                 <div class="social-grid">
@@ -105,7 +104,7 @@
                         <span>Discord</span>
                     </a>
                     <a href="https://github.com/Virenvooo/" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/github" class="social-icon github-icon">
+                        <img src="https://cdn.simpleicons.org/github" class="social-icon" alt="GitHub">
                         <span>GitHub</span>
                     </a>
                     <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" class="social-btn">
@@ -120,17 +119,12 @@
                         <img src="https://cdn.simpleicons.org/anilist" class="social-icon" alt="AniList">
                         <span>AniList</span>
                     </a>
-                    <a href="https://steamcommunity.com/id/Virenvo" class="social-btn"> <img src="https://cdn.simpleicons.org/steam" 
-                        class="social-icon steam-icon"> <span>Steam</span> </a>
                 </div>
             </section>
 
             <hr class="divider reveal">
 
-            <!-- ==================== WIDGETS ==================== -->
-
             <!-- Discord Status -->
-            <!-- EDIT HERE: Change Discord user ID if needed -->
             <section class="section reveal">
                 <h2 class="section-title">DISCORD STATUS</h2>
                 <div class="discord-widget">
@@ -142,7 +136,6 @@
             <hr class="divider reveal">
 
             <!-- AniList Card -->
-            <!-- EDIT HERE: If the widget URL changes, update it here -->
             <section class="section reveal">
                 <h2 class="section-title">ANILIST CARD</h2>
                 <a href="https://anilist.co/user/Vir" target="_blank" class="anilist-wrapper">
@@ -154,13 +147,12 @@
             <hr class="divider reveal">
 
             <!-- Spotify Currently Playing -->
-            <!-- EDIT HERE: Change Spotify user ID if needed -->
             <section class="section reveal">
                 <h2 class="section-title">CURRENTLY PLAYING ON SPOTIFY</h2>
                 <div class="spotify-widget">
                     <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank">
                         <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=mrfpf7omss9rmtuuebmymartk&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&profanity=false&mode=dark&bar_color=53b14f&bar_color_cover=false"
-                             alt="Spotify Currently Playing" loading="lazy" style="width:100%; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+                             alt="Spotify Currently Playing" loading="lazy">
                     </a>
                 </div>
             </section>
@@ -168,7 +160,6 @@
             <hr class="divider reveal">
 
             <!-- Last.fm Recently Played -->
-            <!-- EDIT HERE: Change Last.fm username or count -->
             <section class="section reveal">
                 <h2 class="section-title">RECENTLY PLAYED ON LAST.FM</h2>
                 <div class="lastfm-widget">
@@ -178,125 +169,165 @@
                     </a>
                 </div>
             </section>
-            <hr class="divider reveal">
+
             <hr class="divider reveal">
 
-            <!-- ==================== FOOTER ==================== -->
-            <!-- EDIT HERE: Update the date when you make changes -->
-             <center>
+            <!-- Footer -->
             <footer class="footer">
-                <p>Last change made: 01/01/2026 09:27pm CET ✨</p>
+                <p>Last change made: 2nd Jan 2026 05:14pm CET ✨</p>
             </footer>
-                </center>
+
         </div>
     </main>
 
+    <!-- ==================== FIXED BOTTOM MUSIC PLAYER ==================== -->
+    <div class="music-player-bar">
+        <div class="music-player-cover">
+            <img id="player-cover" src="song-cover/cover1.jpg" alt="Album cover">
+        </div>
+
+        <div class="music-player-main">
+            <!-- Top: Progress + Volume -->
+            <div class="music-player-top">
+                <div class="music-player-progress">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+
+                <div class="music-player-volume">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+
+            <!-- Bottom: Prev / Play / Next -->
+            <div class="music-player-bottom-controls">
+                <button id="prev-btn" class="control-btn">⏮</button>
+                <button id="play-pause-btn" class="control-btn play-pause">
+                    <svg viewBox="0 0 24 24" width="32" height="32">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </button>
+                <button id="next-btn" class="control-btn">⏭</button>
+            </div>
+        </div>
+
+        <!-- Hidden audio -->
+        <audio id="audio-player" preload="metadata"></audio>
+    </div>
+
     <!-- ==================== ALL SCRIPTS ==================== -->
     <script>
-        /* PARTICLES.JS BACKGROUND */
+        /* PARTICLES.JS */
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: "#E246A1" },
                 shape: { type: "circle" },
-                opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+                opacity: { value: 0.4, random: true },
                 size: { value: 3, random: true },
                 line_linked: { enable: true, distance: 150, color: "#E246A1", opacity: 0.2, width: 1 },
-                move: { enable: true, speed: 1.5, random: true, out_mode: "out" }
+                move: { enable: true, speed: 1.5 }
             },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
-            },
+            interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" } } },
             retina_detect: true
         });
 
-        /* THEME TOGGLE (Dark/Light Mode) */
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
+        /* THEME TOGGLE FIXED (icon changes correctly) */
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
 
-        if (localStorage.getItem('theme') === 'light') {
-            body.classList.add('light-mode');
-        }
+// Icone SVG separate
+const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+const sunIcon = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
-        });
+// Carica tema salvato
+if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+    themeIcon.innerHTML = sunIcon;
+} else {
+    themeIcon.innerHTML = moonIcon;
+}
 
-        /* GLOWING CUSTOM CURSOR */
+// Toggle al click
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    if (body.classList.contains('light-mode')) {
+        themeIcon.innerHTML = sunIcon;
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeIcon.innerHTML = moonIcon;
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+        /* GLOWING CURSOR */
         const cursor = document.getElementById('glowing-cursor');
-        let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
-        const easing = 0.35;
-
-        document.addEventListener('mousemove', (e) => {
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-
+        let cx = 0, cy = 0, tx = 0, ty = 0;
+        const easing = 0.25;
+        document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
         function animateCursor() {
-            currentX += (targetX - currentX) * easing;
-            currentY += (targetY - currentY) * easing;
-            cursor.style.left = `${currentX}px`;
-            cursor.style.top = `${currentY}px`;
+            cx += (tx - cx) * easing;
+            cy += (ty - cy) * easing;
+            cursor.style.left = cx + 'px';
+            cursor.style.top = cy + 'px';
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
 
-        /* 3D AVATAR TILT EFFECT */
+        /* 3D AVATAR TILT */
         const avatarWrapper = document.querySelector('.avatar-wrapper');
         const avatar = document.querySelector('.avatar');
-
         if (avatarWrapper && avatar) {
-            avatarWrapper.addEventListener('mousemove', (e) => {
+            avatarWrapper.addEventListener('mousemove', e => {
                 const rect = avatarWrapper.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 20;
-                const rotateX = ((rect.height / 2 - y) / (rect.height / 2)) * 20;
-                avatar.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.08)`;
+                const rx = ((rect.height / 2 - y) / (rect.height / 2)) * 20;
+                const ry = ((x - rect.width / 2) / (rect.width / 2)) * 20;
+                avatar.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.08)`;
             });
-
             avatarWrapper.addEventListener('mouseleave', () => {
-                avatar.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+                avatar.style.transform = 'rotateX(0) rotateY(0) scale(1)';
             });
         }
 
-        /* CLICK PARTICLE EFFECT */
+        /* CLICK PARTICLES */
         const clickCanvas = document.getElementById('click-effect');
         const clickCtx = clickCanvas.getContext('2d');
         clickCanvas.width = window.innerWidth;
         clickCanvas.height = window.innerHeight;
-
-        let clickParticles = [];
-
-        document.addEventListener('click', (e) => {
-            const x = e.clientX, y = e.clientY;
-            for (let i = 0; i < Math.floor(Math.random() * 7 + 12); i++) {
-                clickParticles.push({
-                    x, y,
+        let particles = [];
+        document.addEventListener('click', e => {
+            for (let i = 0; i < 15; i++) {
+                particles.push({
+                    x: e.clientX,
+                    y: e.clientY,
                     radius: Math.random() * 4 + 2,
                     color: `hsl(320, 80%, ${Math.random() * 30 + 60}%)`,
-                    velocityX: Math.random() * 8 - 4,
-                    velocityY: Math.random() * 8 - 4,
+                    vx: Math.random() * 8 - 4,
+                    vy: Math.random() * 8 - 4,
                     life: 30
                 });
             }
         });
-
         window.addEventListener('resize', () => {
             clickCanvas.width = window.innerWidth;
             clickCanvas.height = window.innerHeight;
         });
-
-        function animateClickParticles() {
+        function animateParticles() {
             clickCtx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
-            clickParticles.forEach((p, i) => {
+            particles.forEach((p, i) => {
                 p.life--;
-                p.x += p.velocityX;
-                p.y += p.velocityY;
+                p.x += p.vx;
+                p.y += p.vy;
                 p.radius *= 0.95;
-
                 clickCtx.beginPath();
                 clickCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 clickCtx.fillStyle = p.color;
@@ -304,48 +335,39 @@
                 clickCtx.shadowColor = p.color;
                 clickCtx.globalAlpha = p.life / 30;
                 clickCtx.fill();
-
-                if (p.life <= 0 || p.radius <= 0.5) clickParticles.splice(i, 1);
+                if (p.life <= 0) particles.splice(i, 1);
             });
             clickCtx.globalAlpha = 1;
-            requestAnimationFrame(animateClickParticles);
+            requestAnimationFrame(animateParticles);
         }
-        animateClickParticles();
+        animateParticles();
 
-        /* BACK TO TOP BUTTON */
+        /* BACK TO TOP */
         const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        });
+        window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 400));
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        /* SCROLL REVEAL ANIMATION */
+        /* SCROLL REVEAL */
         const reveals = document.querySelectorAll('.reveal');
-        function checkReveal() {
+        function reveal() {
             const trigger = window.innerHeight * 0.85;
-            reveals.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                el.classList.toggle('visible', top < trigger);
-            });
+            reveals.forEach(el => el.classList.toggle('visible', el.getBoundingClientRect().top < trigger));
         }
-        window.addEventListener('scroll', checkReveal);
-        window.addEventListener('load', checkReveal);
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
 
-        /* SNOW FALLING EFFECT */
+        /* SNOW EFFECT */
         const snowCanvas = document.getElementById('snow-canvas');
         const snowCtx = snowCanvas.getContext('2d');
-
         function resizeSnow() {
             snowCanvas.width = window.innerWidth;
             snowCanvas.height = window.innerHeight;
         }
         resizeSnow();
         window.addEventListener('resize', resizeSnow);
-
-        let snowflakes = [];
-
-        function createSnowflake() {
-            snowflakes.push({
+        let flakes = [];
+        function createFlake() {
+            flakes.push({
                 x: Math.random() * snowCanvas.width,
                 y: -10,
                 size: Math.random() * 3 + 1,
@@ -353,31 +375,125 @@
                 drift: Math.random() * 0.5 - 0.25
             });
         }
-
         function drawSnow() {
             snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
-            const color = document.body.classList.contains('light-mode')
-                ? "rgba(0,0,0,0.8)" : "rgba(255,255,255,0.9)";
+            const color = body.classList.contains('light-mode') ? "rgba(0,0,0,0.8)" : "rgba(255,255,255,0.9)";
             snowCtx.fillStyle = color;
-
-            snowflakes.forEach((flake, i) => {
+            flakes.forEach((f, i) => {
                 snowCtx.beginPath();
-                snowCtx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+                snowCtx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
                 snowCtx.fill();
-
-                flake.y += flake.speed;
-                flake.x += flake.drift;
-
-                if (flake.y > snowCanvas.height) snowflakes.splice(i, 1);
+                f.y += f.speed;
+                f.x += f.drift;
+                if (f.y > snowCanvas.height) flakes.splice(i, 1);
             });
-
-            if (snowflakes.length < 120) createSnowflake();
+            if (flakes.length < 120) createFlake();
             requestAnimationFrame(drawSnow);
         }
         drawSnow();
+
+/* ==================== MUSIC PLAYER FULL FIX ==================== */
+const audioPlayer = document.getElementById('audio-player');
+const playPauseBtn = document.getElementById('play-pause-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const progressFill = document.getElementById('progress-fill');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+const volumeSlider = document.getElementById('volume-slider');
+const coverImg = document.getElementById('player-cover');
+
+const playlist = [
+    { src: "song-cover/song1.mp3", cover: "song-cover/cover1.jpg" },
+    { src: "song-cover/song2.mp3", cover: "song-cover/cover2.jpg" },
+    { src: "song-cover/song3.mp3", cover: "song-cover/cover3.jpg" },
+    { src: "song-cover/song4.mp3", cover: "song-cover/cover4.jpg" }
+];
+
+let currentIndex = 0;
+let unlocked = false;
+
+// Unlock and auto-play on first click anywhere
+function unlockAndPlay() {
+    if (unlocked) return;
+    audioPlayer.play().then(() => {
+        unlocked = true;
+        playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+    }).catch(() => {});
+}
+document.body.addEventListener('click', unlockAndPlay, { once: true });
+document.body.addEventListener('touchstart', unlockAndPlay, { once: true });
+
+// Load song
+function loadSong(index) {
+    const song = playlist[index];
+    audioPlayer.src = song.src;
+    coverImg.src = song.cover;
+    audioPlayer.load();
+}
+
+// Play/Pause
+playPauseBtn.addEventListener('click', () => {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+    } else {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>';
+    }
+});
+
+// Prev / Next with auto-play
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+    loadSong(currentIndex);
+    audioPlayer.play();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    loadSong(currentIndex);
+    audioPlayer.play();
+});
+
+// Auto-next when song ends
+audioPlayer.addEventListener('ended', () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    loadSong(currentIndex);
+    audioPlayer.play();
+});
+
+// Volume
+if (volumeSlider) {
+    audioPlayer.volume = volumeSlider.value;
+    volumeSlider.addEventListener('input', e => audioPlayer.volume = e.target.value);
+}
+
+// Progress & time
+audioPlayer.addEventListener('timeupdate', () => {
+    if (audioPlayer.duration) {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressFill.style.width = `${progress}%`;
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+    }
+});
+
+audioPlayer.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audioPlayer.duration);
+});
+
+function formatTime(s) {
+    if (isNaN(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, '0')}`;
+}
+
+// Load first song
+loadSong(0);
     </script>
 
-    <!-- ONEKO CAT (follows mouse) -->
+    <!-- ONEKO CAT -->
     <script src="oneko.js"></script>
 </body>
 </html>

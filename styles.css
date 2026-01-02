@@ -2,26 +2,19 @@
    VIR'S PERSONAL WEBSITE — CLEAN, OPTIMIZED & OPEN SOURCE
    ============================================================ */
 
-/* ==================== 1. EDIT HERE: MAIN COLORS ==================== */
+/* ==================== 1. MAIN COLORS ==================== */
 :root {
-    --primary: #E246A1;           /* Main pink/purple accent */
-    --bg-dark: #0a001f;           /* Dark mode background */
-    --text-light: #e0d0ff;        /* Text in dark mode */
+    --primary: #E246A1;
+    --bg-dark: #0a001f;
+    --text-light: #e0d0ff;
     --card-dark: rgba(20, 15, 40, 0.4);
     --card-light: rgba(255, 255, 255, 0.7);
 }
 
-/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ==================== 2. BASE STYLES ==================== */
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
@@ -34,10 +27,8 @@ body {
     transition: background 0.6s ease, color 0.6s ease;
 }
 
-/* Background Layers */
-#particles-js,
-#snow-canvas,
-#click-effect {
+/* Background layers */
+#particles-js, #snow-canvas, #click-effect {
     position: fixed;
     inset: 0;
     pointer-events: none;
@@ -46,7 +37,7 @@ body {
 #snow-canvas { z-index: 2; }
 #click-effect { z-index: 9998; }
 
-/* ==================== 3. LAYOUT ==================== */
+/* Layout */
 .container {
     width: 100%;
     min-height: 100vh;
@@ -61,22 +52,36 @@ body {
     background: var(--card-dark);
     backdrop-filter: blur(12px);
     border-radius: 30px;
-    padding: 120px 35px 40px; /* Extra top padding for top banner/avatar */
+    padding: 120px 35px 40px;
     width: 90%;
     max-width: 900px;
     margin: 30px auto;
     border: 2px solid rgba(226, 70, 161, 0.5);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 70, 161, 0.2);
-    animation: float 8s ease-in-out infinite, neonPulse 4s ease-in-out infinite alternate;
 }
 
-/* ==================== 4. PROFILE SECTION (FIXED CENTERED) ==================== */
-/* EDIT HERE: Adjust spacing, avatar size, etc. */
+/* Top Banner */
+.top-banner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: rgba(20, 15, 40, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+/* Profile */
 .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     gap: 1.5rem;
     margin-bottom: 3rem;
@@ -86,7 +91,6 @@ body {
     perspective: 1000px;
     width: 150px;
     height: 150px;
-    margin: 0 auto;
 }
 
 .avatar {
@@ -96,32 +100,11 @@ body {
     object-fit: cover;
     border: 4px solid var(--primary);
     box-shadow: 0 0 20px rgba(226, 70, 161, 0.5);
-    transition: transform 0.1s ease-out, box-shadow 0.4s ease;
-    transform-style: preserve-3d;
 }
 
-.avatar-wrapper:hover .avatar {
-    box-shadow: 0 0 40px rgba(226, 70, 161, 0.9);
-}
+.username { color: var(--primary); font-size: 1.1rem; }
+.name { font-size: 3rem; color: #fff; }
 
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.username {
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-
-.name {
-    font-size: 3rem;
-    color: #ffffff;
-}
-
-/* Badges */
 .badges {
     display: flex;
     flex-wrap: wrap;
@@ -133,21 +116,11 @@ body {
     background: rgba(226, 70, 161, 0.2);
     padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    font-size: 0.9rem;
     border: 1px solid var(--primary);
-    transition: all 0.35s ease;
 }
 
-.badge:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: rgba(226, 70, 161, 0.35);
-    box-shadow: 0 0 12px rgba(226, 70, 161, 0.6);
-}
-
-/* Bio */
 .bio-container {
     max-width: 700px;
-    margin: 0 auto;
     text-align: center;
 }
 
@@ -159,12 +132,9 @@ body {
     letter-spacing: 2px;
 }
 
-.bio {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
+.bio { font-size: 1.1rem; line-height: 1.6; }
 
-/* ==================== 5. GENERAL SECTIONS ==================== */
+/* Sections */
 .divider {
     border-top: 1px solid rgba(226, 70, 161, 0.5);
     width: 60%;
@@ -172,57 +142,22 @@ body {
     margin: 2.5rem auto;
 }
 
-.section {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-/* ==================== SECTION TITLE UNDERLINE ANIMATION ==================== */
-/* EDIT HERE: Change color, thickness, animation speed if you want */
+.section { margin-bottom: 3rem; text-align: center; }
 
 .section-title {
-    position: relative;
-    display: inline-block;           /* Important for centering the line */
     font-size: 1.3rem;
     color: var(--primary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding-bottom: 8px;             /* Space for the underline */
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;                     /* Thickness of the line */
-    bottom: 0;
-    left: 50%;
-    background: var(--primary);
-    border-radius: 2px;
-    transform: translateX(-50%);
-    transition: width 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 0 10px var(--primary);
-}
-
-.section-title:hover::after {
-    width: 160%;                      /* How far it spreads (80% of title width) */
-    box-shadow: 0 0 20px var(--primary), 0 0 40px rgba(226, 70, 161, 0.6);
-}
-
-/* Optional: subtle lift on hover for the text */
-.section-title:hover {
-    transform: translateY(-3px);
-    transition: transform 0.4s ease;
-}
-
-/* Interests Pills */
+/* Pills */
 .pills {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    font-weight: bold;
 }
 
 .pill {
@@ -236,10 +171,9 @@ body {
 .pill:hover {
     transform: translateY(-8px) scale(1.1);
     background: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 15px 35px rgba(226, 70, 161, 0.4);
 }
 
-/* Social Links */
+/* Social */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -265,80 +199,17 @@ body {
 .social-btn:hover {
     transform: translateY(-10px) scale(1.1);
     background: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 20px 40px rgba(226, 70, 161, 0.5);
 }
 
-.social-icon {
-    width: 32px;
-    height: 32px;
+.social-icon { width: 32px; height: 32px; }
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    color: rgba(224, 208, 255, 0.6);
 }
 
-/* ==================== 6. WIDGETS ==================== */
-.discord-widget,
-.lastfm-widget,
-.spotify-widget,
-.anilist-wrapper {
-    max-width: 450px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
-.discord-banner-widget,
-.lastfm-image,
-.anilist-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    transition: transform 0.5s ease;
-}
-
-.discord-widget:hover img,
-.lastfm-widget:hover img {
-    transform: scale(1.05);
-}
-
-/* ==================== 7. UI ELEMENTS ==================== */
-/* Top Banner */
-.top-banner {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10000;
-    background: rgba(20, 15, 40, 0.6);
-    backdrop-filter: blur(10px);
-    color: var(--text-light);
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid var(--primary);
-    font-size: 0.95rem;
-    pointer-events: none;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 30px;
-    right: 20px;
-    z-index: 1000;
-    background: rgba(20, 15, 40, 0.6);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--primary);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.15);
-}
 
 /* Back to Top */
 #back-to-top {
@@ -364,220 +235,296 @@ body {
     visibility: visible;
 }
 
-#back-to-top:hover {
-    background: rgba(226, 70, 161, 0.6);
-    transform: translateY(-8px) scale(1.1);
-}
-
 /* Floating Character */
 .floating-character {
     position: fixed;
-    bottom: -27px;
-    right: -70px;
+    bottom: -5px;
+    right: -5px;
     z-index: 999;
     pointer-events: none;
-    opacity: 0.85;
 }
 
 .floating-character img {
-    width: 450px;
-    height: auto;
+    width: 360px;
     filter: drop-shadow(0 10px 20px rgba(226, 70, 161, 0.6));
-}
-
-.floating-character:hover {
-    opacity: 1;
-    transform: translateY(-10px);
 }
 
 /* Glowing Cursor */
 #glowing-cursor {
     position: fixed;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px var(--primary), 0 0 40px rgba(226, 70, 161, 0.8);
+    box-shadow: 0 0 20px var(--primary);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-body:hover #glowing-cursor {
-    opacity: 1;
-}
+body:hover #glowing-cursor { opacity: 1; }
 
-/* ==================== 8. LIGHT MODE ==================== */
-body.light-mode {
-    background: #f7f2ff;
-    color: #2d1b69;
-}
-
-body.light-mode .card {
-    background: var(--card-light);
-    border-color: rgba(226, 70, 161, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .username,
-body.light-mode .section-title,
-body.light-mode .name {
-    color: #2d1b69;
-}
-
-body.light-mode .badge,
-body.light-mode .pill {
-    background: rgba(226, 70, 161, 0.15);
-    border-color: rgba(226, 70, 161, 0.4);
-}
-
-body.light-mode .social-btn {
-    background: rgba(255, 255, 255, 0.8);
-}
-
-/* ==================== 9. ANIMATIONS ==================== */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes neonPulse {
-    from { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(226, 70, 161, 0.2); }
-    to { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 60px rgba(226, 70, 161, 0.5); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Scroll Reveal */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Gradient Text (Name) */
-.gradient-text {
-    background: linear-gradient(90deg, #ffcc33, #ff9933, #ff6600, #ff9933, #ffcc33);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: nostalgicFlow 5s ease infinite;
-}
-
-@keyframes nostalgicFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* ==================== 10. RESPONSIVE ==================== */
-@media (max-width: 600px) {
-    .card {
-        padding: 100px 1.5rem 2rem;
-    }
-    .avatar-wrapper {
-        width: 120px;
-        height: 120px;
-    }
-    .name {
-        font-size: 2.5rem;
-    }
-    .floating-character img {
-        width: 200px;
-    }
-    .social-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-}
-
-/* ==================== HIDE DEFAULT CURSOR ON ALL INTERACTIVE ELEMENTS ==================== */
-/* This ensures your glowing cursor is the only one visible when hovering links, buttons, pills, badges, widgets, etc. */
-
+/* Hide default cursor */
 a, button, .pill, .badge, .social-btn, .avatar-wrapper, .theme-toggle,
 .discord-widget, .lastfm-widget, .spotify-widget, .anilist-wrapper,
-#back-to-top, .floating-character {
+#back-to-top, .floating-character, .music-player-bar * {
     cursor: none !important;
 }
 
-/* Also hide on their children (icons, images, spans inside) */
-a *, button *, .pill *, .badge *, .social-btn *, .avatar-wrapper *,
-.theme-toggle *, .discord-widget *, .lastfm-widget *, .spotify-widget *,
-.anilist-wrapper *, #back-to-top *, .floating-character * {
-    cursor: none !important;
+/* ==================== FIXED BOTTOM MUSIC PLAYER ==================== */
+.music-player-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    height: 140px;
+    background: rgba(20, 15, 40, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(226, 70, 161, 0.4);
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0.95;
+    transition: all 0.3s ease;
 }
 
-/* Optional: Hide default cursor on the entire body (your glowing cursor will show instead) */
-body {
-    cursor: none !important;
+.music-player-bar:hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
 }
 
-span {
-    font-weight: bold;
+.music-player-cover img {
+    width: 88px;
+    height: 88px;
+    border-radius: 16px;
+    object-fit: cover;
 }
 
-.badges {
-    font-weight: bold;
+.music-player-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.floating-character {
-    animation: floatSway 7s ease-in-out infinite;
+.music-player-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: -40px; /* Abbassa progress e volume */
 }
 
-@keyframes floatSway {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(-10px, -20px) rotate(-3deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+.music-player-progress {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Default (dark mode) */
-#theme-icon path {
-    fill: white;
-    transition: fill 0.3s ease;
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.music-player-volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#volume-slider {
+    width: 90px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(226, 70, 161, 0.7);
+}
+
+.music-player-bottom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Spazio perfetto tra bottoni */
+    margin-top: 50px;
+    margin-right: 70px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: rgba(226, 70, 161, 0.3);
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(226, 70, 161, 0.6);
+}
+
+/* Circle glow instead of oval */
+.control-btn {
+    border-radius: 50% !important;
+    overflow: hidden;
 }
 
 /* Light mode */
-body.light-mode #theme-icon path {
-    fill: black;
+body.light-mode .music-player-bar {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2d1b69;
 }
 
-/* Default (dark theme) */
-#glowing-cursor {
-    border: 2px solid white;
+body.light-mode .control-btn,
+body.light-mode .play-pause svg {
+    color: #2d1b69;
+    fill: #2d1b69;
 }
 
-/* Light theme */
-body.light-mode #glowing-cursor {
-    border: 2px solid black;
+/* Light mode adjustments */
+body.light-mode .music-player-bar {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2d1b69;
+    border-color: rgba(226, 70, 161, 0.3);
 }
 
-/* Dark theme → white icon */
-.github-icon {
-    filter: invert(1);
-    transition: filter 0.3s ease;
+body.light-mode .control-btn,
+body.light-mode .play-pause svg,
+body.light-mode .music-player-volume svg {
+    color: #2d1b69;
+    fill: #2d1b69;
 }
 
-/* Light theme → black icon */
-body.light-mode .github-icon {
-    filter: invert(0);
+body.light-mode .progress-bar {
+    background: rgba(0, 0, 0, 0.2);
 }
 
-/* Dark theme → white icon */
-.steam-icon {
-    filter: invert(1);
-    transition: filter 0.3s ease;
+body.light-mode #volume-slider {
+    background: rgba(0, 0, 0, 0.2);
 }
 
-/* Light theme → black icon */
-body.light-mode .steam-icon {
-    filter: invert(0);
+/* Light mode */
+body.light-mode .music-player-bar {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2d1b69;
+}
+
+body.light-mode .control-btn, body.light-mode .play-pause svg {
+    color: #2d1b69;
+    fill: #2d1b69;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .music-player-bar {
+        width: 95%;
+        height: 100px;
+        padding: 12px;
+    }
+    .music-player-cover img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+ /* Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.anilist-img {
+    width: 100%;
+    max-width: 900px;        /* Back to normal size */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== MUSIC PLAYER ICONS FIX ==================== */
+/* Play/Pause SVG icon — white in dark mode, dark in light mode */
+.play-pause svg,
+.music-player-volume svg {
+    fill: white;
+    width: 32px;
+    height: 32px;
+    transition: fill 0.3s ease;
+}
+
+/* Volume icon specifically */
+.music-player-volume svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+}
+
+/* Light mode: dark icons */
+body.light-mode .play-pause svg,
+body.light-mode .music-player-volume svg {
+    fill: #2d1b69;
+}
+
+/* ==================== FOOTER - BOTTOM LEFT ==================== */
+.footer {
+    position: fixed;
+    bottom: -40px;                    /* Distance from bottom */
+    left: -500px;                      /* Distance from left */
+    margin: 0;                       /* Remove default margin */
+    padding: 0.8rem 1.2rem;
+    background: rgba(20, 15, 40, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(226, 70, 161, 0.3);
+    font-size: 0.9rem;
+    color: var(--text-light);
+    z-index: 998;                    /* Below music player if needed */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.footer:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Light mode */
+body.light-mode .footer {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2d1b69;
+    border-color: rgba(226, 70, 161, 0.3);
 }
