@@ -1,6 +1,6 @@
 ## License / Usage
 This repository contains code that I did not create myself.  
-All credit goes to Grok Ai and Copilor Ai.
+All credit goes to Grok Ai and Copilot Ai.
 You are free to use, modify, and distribute the code as you wish.
 
 Grok Ai made it easier to use-modify it.
