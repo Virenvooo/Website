@@ -705,3 +705,152 @@ body.light-mode .footer {
 .demon-section.active .demon-entry {
   display: flex;
 }
+
+/* ==================== FIX MOBILE - AGGIUNGI QUESTO IN FONDO A STYLES.CSS ==================== */
+
+/* Card più stretta e padding ridotto su mobile */
+@media (max-width: 768px) {
+  .card {
+    padding: 80px 20px 40px !important;
+    width: 95% !important;
+    max-width: none !important;
+    margin: 10px auto !important;
+  }
+
+  /* Testi più piccoli e leggibili */
+  .name { font-size: 2.2rem !important; }
+  .section-title { font-size: 1.6rem !important; }
+  .bio { font-size: 1rem !important; line-height: 1.5 !important; }
+  h1 { font-size: 2.2rem !important; }
+
+  /* Pulsanti tab GD List più piccoli e a colonna se serve */
+  .section-nav {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .section-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Demon entry su mobile: thumbnail sopra, testo sotto */
+  .demon-entry {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .demon-thumbnail img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 300px;
+    margin: 0 auto 1rem !important;
+    border-radius: 16px;
+  }
+  .demon-rank { font-size: 2.5rem !important; }
+  .demon-name { font-size: 1.8rem !important; }
+
+  /* Pulsanti social e pills più piccoli */
+  .social-btn span { font-size: 1rem !important; }
+  .pill { font-size: 0.9rem !important; padding: 0.5rem 0.9rem !important; }
+
+  /* Top banner più piccolo */
+  .top-banner {
+    font-size: 0.8rem !important;
+    padding: 0.5rem 1rem !important;
+    top: 10px !important;
+  }
+
+  /* Back-to-top e theme toggle più piccoli */
+  #back-to-top, .theme-toggle {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  /* Floating character e gatto più piccoli su mobile */
+  .floating-character img {
+    width: 120px !important;
+  }
+  #oneko {
+    width: 64px !important;
+    height: 64px !important;
+    bottom: 80px !important;
+    right: 10px !important;
+  }
+}
+
+/* Per schermi molto piccoli (es. iPhone SE) */
+@media (max-width: 480px) {
+  .name { font-size: 2rem !important; }
+  .demon-rank { font-size: 2.2rem !important; }
+  .demon-name { font-size: 1.6rem !important; }
+}
+
+/* Section buttons */
+.section-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 100px;
+  z-index: 999;
+}
+
+.section-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(226, 70, 161, 0.1);
+  border: 1px solid rgba(226, 70, 161, 0.3);
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-btn:hover {
+  background: rgba(226, 70, 161, 0.3);
+}
+
+.section-btn.active {
+  background: rgba(226, 70, 161, 0.4);
+}
+
+/* Section content visibility */
+.section-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-content.active {
+  display: block;
+}
+
+/* Level list centering */
+.level-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Footer bottom-left */
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(20, 15, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(226, 70, 161, 0.3);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  z-index: 998;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 0.6rem 1rem;
+}
