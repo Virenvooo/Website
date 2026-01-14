@@ -837,12 +837,6 @@ body.light-mode .footer {
   .floating-character img {
     width: 120px !important;
   }
-  #oneko {
-    width: 64px !important;
-    height: 64px !important;
-    bottom: 80px !important;
-    right: 10px !important;
-  }
 }
 
 /* Per schermi molto piccoli (es. iPhone SE) */
@@ -1112,4 +1106,18 @@ body.light-mode .footer {
     padding: 0 10px !important;
     overflow-x: hidden !important;
   }
+}
+
+#snow-canvas,
+#particles-js,
+#click-effect {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none;
+  will-change: transform;               /* hints browser to optimize */
+  transform: translateZ(0);             /* forces hardware acceleration */
+  z-index: 2;                           /* adjust if needed */
 }
