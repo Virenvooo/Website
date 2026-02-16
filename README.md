@@ -10,10 +10,8 @@ Sorry for bad res.
 ## ✨ Features
 
 - Deep cosmic purple aesthetic with floating blurred orbs
-- Interactive particles.js background
 - Click → colorful particle burst effect
 - Floating anime-style mascot (visible on desktop)
-- Glassmorphism cards with hover lift & glow effects
 - Fully responsive (mobile → tablet → desktop)
 - Discord status widget
 - Spotify "Currently Playing" embed
@@ -27,7 +25,6 @@ Sorry for bad res.
 - particles.js (background particles)
 - Custom lightweight canvas click effect
 - External widgets: Discord banner, Spotify GitHub profile card
-- Optional: Lucide icons (for buttons & expand symbols)
 
 ## 📂 Folder Structure
 ```website/
