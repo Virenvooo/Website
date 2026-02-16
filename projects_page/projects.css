@@ -1,0 +1,301 @@
+/* projects.css – updated for bigger cards */
+
+.projects-wrapper {
+    width: 100%;
+    max-width: 1400px;           /* ← good for 3-column layout on big screens */
+    margin: 7rem auto 4rem;
+    padding: 0 1.5rem;           /* balanced side padding */
+    text-align: center;
+    overflow-x: hidden;          /* prevents horizontal scroll from overflowing images */
+}
+
+.projects-title {
+    font-size: 3.8rem;          /* ← much bigger title */
+    font-weight: 800;
+    margin-bottom: 4.5rem;
+    background: linear-gradient(90deg, #6a00ff, #9d4edd, #bb86fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+    letter-spacing: -1px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));  /* 360–380px min works well for 3 cols on 1200–1400px screens */
+    gap: 2.2rem;                 /* generous spacing */
+    padding: 0 0.5rem;
+    justify-content: center;     /* centers the grid if fewer than 3 items */
+}
+
+.project-card {
+    background: rgba(30, 20, 60, 0.55);
+    border: 1px solid rgba(157, 78, 221, 0.5);
+    border-radius: 20px;
+    padding: 1.8rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: hidden;            /* ← important: clips overflowing content inside card */
+    display: flex;
+    flex-direction: column;
+    height: 100%;                /* makes cards same height in row */
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.04);
+    transition: transform 0.4s ease;
+}
+
+.project-img {
+    width: 100%;
+    height: 220px;               /* fixed height – adjust to 240–280px if you want even bigger */
+    object-fit: cover;           /* crops smartly instead of stretching/distorting */
+    object-position: center;
+    border-radius: 14px;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    display: block;
+}
+
+.project-name {
+    font-size: 1.9rem;           /* bigger project titles */
+    margin-bottom: 0.8rem;
+    color: #f0e6ff;
+    font-weight: 700;
+}
+
+.project-desc {
+    font-size: 1.1rem;           /* slightly larger description */
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+    flex-grow: 1;                /* pushes tags to bottom */
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-top: auto;            /* tags stick to bottom of card */
+}
+
+.tag {
+    padding: 0.45rem 1rem;
+    background: rgba(157, 78, 221, 0.25);
+    border: 1px solid rgba(157, 78, 221, 0.55);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Back button – make it bigger too */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 5rem;
+    padding: 0.9rem 2rem;
+    background: rgba(157, 78, 221, 0.22);
+    border: 1px solid rgba(157, 78, 221, 0.55);
+    border-radius: 14px;
+    color: #f0e6ff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(187, 134, 252, 0.35);
+    border-color: #bb86fc;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(187,134,252,0.4);
+}
+
+/* Optional: force max 3 columns on very wide screens (1600px+) */
+@media (min-width: 1400px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);   /* exactly 3 columns */
+        max-width: 1300px;                       /* keeps them from spreading too wide */
+        margin: 0 auto;
+        gap: 2.8rem;
+    }
+    
+    .project-img {
+        height: 260px;                           /* bigger preview on large screens */
+    }
+}
+
+/* Tablet – 2 columns */
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 1.8rem;
+    }
+}
+
+/* Mobile – 1 column */
+@media (max-width: 680px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .project-img {
+        height: 200px;          /* smaller on phone to save space */
+    }
+    
+    .projects-wrapper {
+        padding: 0 1rem;
+    }
+}
+
+.projects-wrapper {
+    width: 100%;
+    max-width: 1520px;           /* ← increased from ~1400px → cards go wider */
+    margin: 7rem auto 5rem;      /* top & bottom margin – side auto centers it */
+    padding: 0 1.5rem;           /* ← reduced side padding (was probably higher before) */
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* On very wide screens let it stretch even more */
+@media (min-width: 1600px) {
+    .projects-wrapper {
+        max-width: 1680px;       /* or even 90vw if you want super aggressive */
+        padding: 0 2rem;
+    }
+}
+
+/* Grid – controls spacing between cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));  /* 380–400px min is good for 3-col feel */
+    gap: 2rem;                   /* ← reduced from 2.5rem → cards closer together horizontally */
+    padding: 0 0.8rem;           /* tiny inner padding – helps on narrow views */
+    justify-content: center;
+}
+
+/* Optional: force stronger 3-column layout on desktop */
+@media (min-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);   /* locks to 3 columns */
+        gap: 2.2rem;
+        max-width: 100%;                         /* uses full available width */
+    }
+}
+
+/* Tablet – still tries for 2–3 */
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 1.8rem;
+        padding: 0 0.5rem;
+    }
+}
+
+/* Mobile – full width feel */
+@media (max-width: 680px) {
+    .projects-wrapper {
+        padding: 0 1rem;         /* very little side space on phone */
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+        padding: 0;
+    }
+}
+
+/* Image wrapper – needed for absolute positioning of overlay */
+.project-img-wrapper {
+    position: relative;             /* important – makes overlay position relative to image */
+    overflow: hidden;
+    border-radius: 14px;            /* match your image radius */
+    margin-bottom: 1.4rem;
+}
+
+/* Hover overlay – darkens image + centers icon */
+.hover-overlay {
+    position: absolute;
+    inset: 0;                       /* fill entire image area */
+    background: rgba(18, 0, 34, 0.65);   /* dark purple-ish overlay, adjust opacity */
+    backdrop-filter: blur(4px);     /* optional subtle blur */
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;           /* allows clicks to pass through if card is link */
+}
+
+/* The centered expand icon */
+.expand-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(157, 78, 221, 0.35);   /* semi-transparent purple */
+    border: 2px solid #bb86fc;
+    border-radius: 16px;                    /* slightly rounded square */
+    color: #f0e6ff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Hover states */
+.project-card:hover .hover-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .expand-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Optional: subtle scale on whole card + image zoom */
+.project-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(187,134,252,0.35);
+}
+
+.project-img {
+    transition: transform 0.45s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);         /* gentle zoom under overlay */
+}
+
+/* Make the whole card act like a link */
+.project-link {
+    display: block;               /* important */
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+/* Ensure inner elements don't interfere with click */
+.project-card {
+    height: 100%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(187,134,252,0.35);
+}
+
+/* Optional: pointer cursor on whole card */
+.project-link:hover .project-card {
+    cursor: pointer;
+}

@@ -1,250 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@vir</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Particles.js Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/8XlI3tq.png">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@vir</title>
+  <link rel="icon" type="image/x-icon" href="https://i.imgur.com/8XlI3tq.png"/>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Particles.js – consider replacing with lighter alternative later -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
 
-    <!-- ==================== TOP BANNER ==================== -->
-    <!-- EDIT HERE: Change the message if you want -->
-    <div class="top-banner">
-        <p>Open source on my GitHub - feel free to use it, modify it, or get inspired! ✨</p>
-    </div>
-</nav>
+  <!-- Background layers -->
+  <div class="floating-orbs"></div>
+  <div id="particles-js"></div>
+  <canvas id="click-effect"></canvas>
 
+  <!-- Floating mascot (desktop only) -->
+  <div class="floating-character">
+    <img src="https://i.imgur.com/LDJIvgR.png" alt="Cute anime mascot" loading="lazy"/>
+  </div>
 
-    <!-- ==================== BACKGROUND EFFECTS ==================== -->
-    <div id="particles-js"></div>
-    <canvas id="click-effect"></canvas>
+  <!-- Top banner -->
+  <div class="top-banner">
+    <p>Open source on my GitHub – feel free to use, modify or get inspired! ✨</p>
+  </div>
 
-    <!-- ==================== FLOATING CHARACTER ==================== -->
-    <!-- EDIT HERE: Change the image URL to your preferred anime mascot (transparent PNG best) -->
-    <div class="floating-character reveal">
-        <img src="https://i.imgur.com/LDJIvgR.png"
-             alt="Cute anime mascot" loading="lazy">
-    </div>
+  <!-- Main content -->
+  <main class="container">
+    <div class="card">
 
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main class="container">
-        <div class="card reveal">
-
-            <!-- ==================== PROFILE SECTION ==================== -->
-            <!-- EDIT HERE: Avatar, username, name, badges, bio -->
-            <section class="profile reveal">
-                <div class="avatar-wrapper">
-                    <img src="https://i.imgur.com/8RlCVOA.png"
-                         class="avatar" alt="Vir's avatar" loading="lazy">
-                </div>
-
-                <div class="profile-info">
-                    <p class="username">._vir</p>
-                    <h1 class="name gradient-text">Vir</h1>
-
-                    <div class="badges">
-                        <span class="badge">🧒 14-Years-Old</span>
-                        <span class="badge">🎂 Oct 13</span>
-                        <span class="badge">♂️ He/Him</span>
-                        <span class="badge">😒 ISTP-T</span>
-                        <span class="badge">🍕Italy</span>
-                    </div>
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Interests -->
-            <section class="section reveal">
-                <h2 class="section-title">INTERESTS</h2>
-                <div class="pills">
-                    <span class="pill">🎵 Music</span>
-                    <span class="pill">🍥 Animanga</span>
-                    <span class="pill">💻 Tech</span>
-                    <span class="pill">🎮 Gaming</span>
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Links -->
-            <section class="section reveal">
-                <h2 class="section-title">LINKS</h2>
-                <div class="social-grid">
-                    <a href="https://discord.com/users/823914932185202728" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/discord" class="social-icon" alt="Discord">
-                        <span>Discord</span>
-                    </a>
-                    <a href="https://github.com/Virenvooo/" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/github" class="social-icon" alt="GitHub">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/spotify" class="social-icon" alt="Spotify">
-                        <span>Spotify</span>
-                    </a>
-                    <a href="https://www.last.fm/it/user/Virenvo" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/lastdotfm" class="social-icon" alt="Last.fm">
-                        <span>Last.fm</span>
-                    </a>
-                    <a href="https://anilist.co/user/Vir/" class="social-btn">
-                        <img src="https://cdn.simpleicons.org/anilist" class="social-icon" alt="AniList">
-                        <span>AniList</span>
-                    </a>
-                    <a href="https://steamcommunity.com/id/Virenvo/" class="social-btn">
-  <img src="https://cdn.simpleicons.org/steam" class="social-icon" alt="Steam">
-  <span>Steam</span>
-</a>
-
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Discord Status -->
-            <section class="section reveal">
-                <h2 class="section-title">DISCORD STATUS</h2>
-                <div class="discord-widget">
-                    <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png"
-                         alt="Discord Status" class="discord-banner-widget" loading="lazy">
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Spotify Currently Playing -->
-            <section class="section reveal">
-                <h2 class="section-title">CURRENTLY PLAYING ON SPOTIFY</h2>
-                <div class="spotify-widget">
-                    <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank">
-                        <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=mrfpf7omss9rmtuuebmymartk&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&profanity=false&mode=dark&bar_color=53b14f&bar_color_cover=false"
-                             alt="Spotify Currently Playing" loading="lazy">
-                    </a>
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Last.fm Recently Played -->
-            <section class="section reveal">
-                <h2 class="section-title">RECENTLY PLAYED ON LAST.FM</h2>
-                <div class="lastfm-widget">
-                    <a href="https://www.last.fm/it/user/Virenvo" target="_blank">
-                        <img src="https://lastfm-recently-played.vercel.app/api?user=Virenvo&count=10"
-                             alt="Recently Played on Last.fm" loading="lazy" class="lastfm-image">
-                    </a>
-                </div>
-            </section>
-
-            <hr class="divider reveal">
-
-            <!-- Footer -->
-            <footer class="footer">
-                <p>Last change made: 21th Jan 2026 ✨</p>
-            </footer>
-
+      <!-- Profile -->
+      <section class="profile">
+        <div class="avatar-wrapper">
+          <img src="https://i.imgur.com/8RlCVOA.png" class="avatar" alt="Vir's avatar" loading="lazy"/>
         </div>
-    </main>
+        <div class="profile-info">
+          <h1 class="name">Vir</h1>
+            <a class="project-btn" href="projects_page/projects.html">
+             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" class="project-icon" alt="Home icon" style="filter: invert(80%) sepia(20%) saturate(500%) hue-rotate(240deg);">
+                  Projects
+                     </a>
 
-    <!-- ==================== ALL SCRIPTS ==================== -->
-<script>
-    // PARTICLES.JS - starry purple-pink background
-particlesJS("particles-js", {
-    particles: {
-        number: { value: 35 },                    // ← was 70, big saving
-        color: { value: ["#9d4edd", "#da3c72", "#bb86fc"] },
-        opacity: { value: 0.5, random: true },
-        size: { value: 2.8, random: true },
-        line_linked: { 
-            enable: false,                        // ← disable lines = ~30–40% faster
-            distance: 150,
-            color: "#bb86fc",
-            opacity: 0.3,
-            width: 1
-        },
-        move: { 
-            enable: true, 
-            speed: 1.1,                           // slower = less redraw pressure
-            direction: "none", 
-            random: true 
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: false }, onclick: { enable: false } }  // disable hover = faster
-    },
-    retina_detect: true
-});
-    // CLICK PARTICLES - restored and working
+
+           <hr class="divider"/>
+
+          <h2 class="section-title">PRESENTATION</h2>
+          <div class="badges">
+            <span class="badge">🧒 14-Years-Old</span>
+            <span class="badge">🎂 Oct 13</span>
+            <span class="badge">♂️ He/Him</span>
+            <span class="badge">😒 ISTP-T</span>
+            <span class="badge">🍕 Italy</span>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <!-- Interests -->
+      <section class="section">
+        <h2 class="section-title">INTERESTS</h2>
+        <div class="pills">
+          <span class="pill">🎵 Music</span>
+          <span class="pill">🍥 Animanga</span>
+          <span class="pill">💻 Tech</span>
+          <span class="pill">🎮 Gaming</span>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <!-- Links -->
+      <section class="section">
+        <h2 class="section-title">LINKS</h2>
+        <div class="social-grid">
+          <a href="https://discord.com/users/823914932185202728"  target="_blank"   class="social-btn"><img src="https://cdn.simpleicons.org/discord"  class="social-icon" alt="Discord"/> <span>Discord</span></a>
+          <a href="https://github.com/Virenvooo/"            target="_blank"        class="social-btn"><img src="https://cdn.simpleicons.org/github"   class="social-icon" alt="GitHub"/>  <span>GitHub</span></a>
+          <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank" class="social-btn"><img src="https://cdn.simpleicons.org/spotify"  class="social-icon" alt="Spotify"/> <span>Spotify</span></a>
+          <a href="https://www.last.fm/it/user/Virenvo"       target="_blank"       class="social-btn"><img src="https://cdn.simpleicons.org/lastdotfm" class="social-icon" alt="Last.fm"/> <span>Last.fm</span></a>
+          <a href="https://anilist.co/user/Vir/"             target="_blank"        class="social-btn"><img src="https://cdn.simpleicons.org/anilist"  class="social-icon" alt="AniList"/> <span>AniList</span></a>
+          <a href="https://steamcommunity.com/id/Virenvo/"   target="_blank"        class="social-btn"><img src="https://cdn.simpleicons.org/steam"    class="social-icon" alt="Steam"/>   <span>Steam</span></a>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <!-- Discord status -->
+      <section class="section">
+        <h2 class="section-title">DISCORD STATUS</h2>
+        <div class="discord-widget">
+          <img src="https://discord.c99.nl/widget/theme-1/823914932185202728.png"
+               alt="Discord Status" class="discord-banner-widget" loading="lazy"/>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <!-- Spotify now playing -->
+      <section class="section">
+        <h2 class="section-title">CURRENTLY PLAYING ON SPOTIFY</h2>
+        <div class="spotify-widget">
+          <a href="https://open.spotify.com/user/mrfpf7omss9rmtuuebmymartk" target="_blank">
+            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=mrfpf7omss9rmtuuebmymartk&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&profanity=false&mode=dark&bar_color=53b14f&bar_color_cover=false"
+                 alt="Spotify Currently Playing" loading="lazy"/>
+          </a>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <footer class="footer">
+  <a href="https://example.com" target="_blank" style="color: inherit; text-decoration: none;">
+    Last change made: 16th Feb 2026 ✨
+  </a>
+</footer>
+
+
+    </div>
+  </main>
+
+  <!-- ───────────────────────────────────────────────
+       SCRIPTS
+  ─────────────────────────────────────────────── -->
+  <script>
+    // ─── Particles ───────────────────────────────────────
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 18 },
+        color: { value: ["#9d4edd", "#bb86fc"] },
+        opacity: { value: 0.45, random: true },
+        size: { value: 2.2, random: true },
+        line_linked: { enable: false },
+        move: { enable: true, speed: 0.7, direction: "none", random: true }
+      },
+      interactivity: { events: { onhover: { enable: false }, onclick: { enable: false } } },
+      retina_detect: false
+    });
+
+    // ─── Click particles (very lightweight version) ───────
     const clickCanvas = document.getElementById('click-effect');
     const clickCtx = clickCanvas.getContext('2d');
     clickCanvas.width = window.innerWidth;
     clickCanvas.height = window.innerHeight;
+
     let clickParticles = [];
+
     document.addEventListener('click', e => {
-        for (let i = 0; i < 8; i++) {
-            clickParticles.push({
-                x: e.clientX,
-                y: e.clientY,
-                radius: Math.random() * 4 + 2,
-                color: `hsl(${Math.random() < 0.6 ? 270 : 330}, 85%, ${Math.random() * 25 + 60}%)`,
-                vx: Math.random() * 8 - 4,
-                vy: Math.random() * 8 - 4,
-                life: 30
-            });
-        }
-    });
-    window.addEventListener('resize', () => {
-        clickCanvas.width = window.innerWidth;
-        clickCanvas.height = window.innerHeight;
-    });
-    function animateClick() {
-        clickCtx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
-        clickParticles.forEach((p, i) => {
-            p.life--;
-            p.x += p.vx;
-            p.y += p.vy;
-            p.radius *= 0.95;
-            clickCtx.beginPath();
-            clickCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            clickCtx.fillStyle = p.color;
-            clickCtx.shadowBlur = 20;
-            clickCtx.shadowColor = p.color;
-            clickCtx.globalAlpha = p.life / 30;
-            clickCtx.fill();
-            if (p.life <= 0) clickParticles.splice(i, 1);
+      for (let i = 0; i < 6; i++) {
+        clickParticles.push({
+          x: e.clientX,
+          y: e.clientY,
+          radius: Math.random() * 3 + 1,
+          color: `hsl(${Math.random() < 0.6 ? 270 : 330}, 85%, 70%)`,
+          vx: Math.random() * 5 - 2.5,
+          vy: Math.random() * 5 - 2.5,
+          life: 20
         });
-        clickCtx.globalAlpha = 1;
-        requestAnimationFrame(animateClick);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      clickCanvas.width = window.innerWidth;
+      clickCanvas.height = window.innerHeight;
+    });
+
+    function animateClick() {
+      clickCtx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
+      clickParticles = clickParticles.filter(p => {
+        p.life--;
+        if (p.life <= 0) return false;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.radius *= 0.96;
+        clickCtx.beginPath();
+        clickCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        clickCtx.fillStyle = p.color;
+        clickCtx.globalAlpha = p.life / 20;
+        clickCtx.fill();
+        return true;
+      });
+      requestAnimationFrame(animateClick);
     }
     animateClick();
 
-    // SCROLL REVEAL
+    // ─── Scroll reveal ────────────────────────────────────
     const reveals = document.querySelectorAll('.reveal');
-    function reveal() {
-        const trigger = window.innerHeight * 0.85;
-        reveals.forEach(el => el.classList.toggle('visible', el.getBoundingClientRect().top < trigger));
+    function checkReveal() {
+      const trigger = window.innerHeight * 0.88;
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) {
+          el.classList.add('visible');
+        }
+      });
     }
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
 
-    // Gentle mouse parallax on card
-    const card = document.querySelector('.card');
-    document.addEventListener('mousemove', (e) => {
-        if (!card) return;
-        const { clientX, clientY } = e;
-        const x = (clientX / window.innerWidth - 0.5) * 20;
-        const y = (clientY / window.innerHeight - 0.5) * 20;
-        card.style.transform = `perspective(1200px) rotateY(${x}deg) rotateX(${-y}deg) translateZ(0)`;
-    });
-</script>
-<!-- ONEKO CAT - local version -->
-<script src="./oneko.js"></script>
+    const frames = ["@", "@v", "@vi", "@vir", "@vi", "@v", "@"];
+
+    let i = 0;
+    setInterval(() => {
+        document.title = frames[i];
+        i = (i + 1) % frames.length;
+    }, 500); // speed (ms)
+
+  </script>
+
+  <!-- Optional fun addition – keep or remove -->
+  <script src="./oneko.js"></script>
+
 </body>
 </html>

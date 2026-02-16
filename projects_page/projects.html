@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@projects – Vir</title>
+
+    <!-- Main site styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Projects page styles -->
+    <link rel="stylesheet" href="projects.css">
+
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+
+    <!-- Background layers (same as index) -->
+    <div class="floating-orbs"></div>
+    <div id="particles-js"></div>
+    <canvas id="click-effect"></canvas>
+
+    <main class="projects-wrapper">
+
+        <h1 class="projects-title">@projects</h1>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <a href="https://github.com/Virenvooo/password-generator" class="project-link" target="_blank" rel="noopener noreferrer">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="https://i.imgur.com/ZFulVl8.png" class="project-img" alt="Preview">
+                        <div class="hover-overlay">
+                            <div class="expand-icon">↗</div>
+                        </div>
+                    </div>
+
+                    <h2 class="project-name">SecurePass</h2>
+                    <p class="project-desc">A beautiful, secure, and easy-to-use password generator built with customtkinter.</p>
+
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="https://i.imgur.com/I4icbCg.png" class="project-img" alt="Preview">
+                <h2 class="project-name">Soon?</h2>
+                <p class="project-desc">.</p>
+
+                <div class="project-tags">
+                    <span class="tag"></span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="https://i.imgur.com/I4icbCg.png" class="project-img" alt="Preview">
+                <h2 class="project-name">Soon?</h2>
+                <p class="project-desc">.</p>
+
+                <div class="project-tags">
+                    <span class="tag"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Home</a>
+
+    </main>
+
+    <!-- Particles init -->
+    <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 18 },
+        color: { value: ["#9d4edd", "#bb86fc"] },
+        opacity: { value: 0.45, random: true },
+        size: { value: 2.2, random: true },
+        line_linked: { enable: false },
+        move: { enable: true, speed: 0.7, random: true }
+      },
+      interactivity: { events: { onhover: { enable: false }, onclick: { enable: false } } },
+      retina_detect: false
+    });
+    </script>
+
+    <!-- Click effect -->
+    <script>
+    const clickCanvas = document.getElementById('click-effect');
+    const clickCtx = clickCanvas.getContext('2d');
+    clickCanvas.width = window.innerWidth;
+    clickCanvas.height = window.innerHeight;
+
+    let clickParticles = [];
+
+    document.addEventListener('click', e => {
+      for (let i = 0; i < 6; i++) {
+        clickParticles.push({
+          x: e.clientX,
+          y: e.clientY,
+          radius: Math.random() * 3 + 1,
+          color: `hsl(${Math.random() < 0.6 ? 270 : 330}, 85%, 70%)`,
+          vx: Math.random() * 5 - 2.5,
+          vy: Math.random() * 5 - 2.5,
+          life: 20
+        });
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      clickCanvas.width = window.innerWidth;
+      clickCanvas.height = window.innerHeight;
+    });
+
+    function animateClick() {
+      clickCtx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
+      clickParticles = clickParticles.filter(p => {
+        p.life--;
+        if (p.life <= 0) return false;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.radius *= 0.96;
+        clickCtx.beginPath();
+        clickCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        clickCtx.fillStyle = p.color;
+        clickCtx.globalAlpha = p.life / 20;
+        clickCtx.fill();
+        return true;
+      });
+      requestAnimationFrame(animateClick);
+    }
+    animateClick();
+    </script>
+
+</body>
+</html>
