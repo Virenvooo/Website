@@ -74,7 +74,7 @@
     particlesJS("particles-js", {
       particles: {
         number: { value: 25 },
-        color: { value: ["#b07ca0", "#8b7ab8", "#e8c4dc"] },
+        color: { value: ["#c8853a", "#e0a857", "#f5cc80"] },
         opacity: { value: 0.6, random: true },
         size: { value: 2.2, random: true },
         line_linked: { enable: false },
@@ -91,7 +91,7 @@
     let clickParticles = [];
     document.addEventListener('click', e => {
       for (let i = 0; i < 6; i++) {
-        clickParticles.push({ x: e.clientX, y: e.clientY, radius: Math.random()*3+1, color: `hsl(${Math.random()<0.6?310:270},55%,70%)`, vx: Math.random()*5-2.5, vy: Math.random()*5-2.5, life: 20 });
+        clickParticles.push({ x: e.clientX, y: e.clientY, radius: Math.random()*3+1, color: `hsl(${Math.random()<0.6?25:40},55%,70%)`, vx: Math.random()*5-2.5, vy: Math.random()*5-2.5, life: 20 });
       }
     });
     window.addEventListener('resize', () => { clickCanvas.width = window.innerWidth; clickCanvas.height = window.innerHeight; });
