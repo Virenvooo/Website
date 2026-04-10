@@ -3,7 +3,7 @@ A clean, warm amber/orange-themed personal website, with floating particles, cli
 
 **Live demo:** https://virenvo.pages.dev/
 
-![Website preview](https://i.imgur.com/IooIAPh.jpeg)
+![Website preview](https://i.imgur.com/JGU6nZj.jpeg)
 
 ## Features
 
