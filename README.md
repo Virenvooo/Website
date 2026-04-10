@@ -1,5 +1,5 @@
 # Vir's Personal Website
-A clean, pink/lavender-themed personal website inspired by Kaori Miyazono, with floating particles, click effects, anime mascot, Discord & Spotify widgets, and a dedicated projects showcase page.
+A clean, warm amber/orange-themed personal website, with floating particles, click effects, anime mascot, Discord & Spotify widgets, and a dedicated projects showcase page.
 
 **Live demo:** https://virenvo.pages.dev/
 
@@ -7,9 +7,9 @@ A clean, pink/lavender-themed personal website inspired by Kaori Miyazono, with 
 
 ## Features
 
-- Soft pink and lavender aesthetic with floating blurred orbs - inspired by Kaori Miyazono (Your Lie in April)
+- Warm amber and orange aesthetic with floating blurred orbs
 - Custom mouse spotlight that follows the cursor
-- Click - pink/lavender particle burst effect
+- Click - amber/orange particle burst effect
 - Random quote on every page load
 - Auto-calculated age badge (updates every Oct 13)
 - Tooltip on every social link
