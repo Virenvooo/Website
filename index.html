@@ -13,13 +13,12 @@
 
   <div class="floating-orbs"></div>
   <div id="mouse-spotlight"></div>
-  <div id="custom-cursor">♠</div>
+
   <div id="particles-js"></div>
-  <canvas id="cards-canvas"></canvas>
   <canvas id="click-effect"></canvas>
 
 <div class="floating-character">
-  <img src="https://i.imgur.com/DXeL7IM.png" alt="Cute anime mascot" loading="lazy"/>
+  <img src="https://i.imgur.com/Zg83pkf.png" alt="Cute anime mascot" loading="lazy"/>
 </div>
 
   <div class="top-banner">
@@ -31,7 +30,7 @@
 
       <section class="profile">
         <div class="avatar-wrapper">
-          <img src="https://i.imgur.com/PKeQtP8.jpeg" class="avatar" alt="Vir's avatar" loading="lazy"/>
+          <img src="https://i.imgur.com/gsWOKwZ.jpeg" class="avatar" alt="Vir's avatar" loading="lazy"/>
         </div>
         <div class="profile-info">
           <h1 class="name">Vir</h1>
@@ -102,7 +101,7 @@
 
       <footer class="footer">
         <a href="https://example.com" target="_blank" style="color: inherit; text-decoration: none;">
-          Last change made: 21st Mar 2026 ✨
+          Last change made: 10th April 2026
         </a>
       </footer>
 
@@ -110,11 +109,11 @@
   </main>
 
   <script>
-    // ─── Particles (ridotte per performance) ─────────────
+    // ─── Particles ────────────────────────────────────────
     particlesJS("particles-js", {
       particles: {
         number: { value: 25 },
-        color: { value: ["#8B0000", "#C0392B", "#E05555"] },
+        color: { value: ["#b07ca0", "#8b7ab8", "#e8c4dc"] },
         opacity: { value: 0.6, random: true },
         size: { value: 2.2, random: true },
         line_linked: { enable: false },
@@ -123,99 +122,6 @@
       interactivity: { events: { onhover: { enable: false }, onclick: { enable: false } } },
       retina_detect: false
     });
-
-    // ─── Falling playing cards ────────────────────────────
-    const cardsCanvas = document.getElementById('cards-canvas');
-    const cardsCtx = cardsCanvas.getContext('2d');
-
-    function resizeCardsCanvas() {
-      cardsCanvas.width = window.innerWidth;
-      cardsCanvas.height = window.innerHeight;
-    }
-    resizeCardsCanvas();
-    window.addEventListener('resize', resizeCardsCanvas);
-
-    const SUITS = ['♠', '♥', '♦', '♣'];
-    const COLORS = ['#E05555', '#8B0000', '#C0392B', '#ff6b6b'];
-
-    function createCard() {
-      return {
-        x: Math.random() * window.innerWidth,
-        y: -80,
-        width: 32,
-        height: 44,
-        suit: SUITS[Math.floor(Math.random() * SUITS.length)],
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        speed: 0.5 + Math.random() * 1.0,
-        rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.012,
-        drift: (Math.random() - 0.5) * 0.3,
-        opacity: 0.5 + Math.random() * 0.5
-      };
-    }
-
-    // Only 18 cards max – very light
-    let fallingCards = Array.from({ length: 18 }, createCard).map(c => {
-      c.y = Math.random() * window.innerHeight;
-      return c;
-    });
-
-    function drawCard(c) {
-      cardsCtx.save();
-      cardsCtx.globalAlpha = c.opacity;
-      cardsCtx.translate(c.x, c.y);
-      cardsCtx.rotate(c.rotation);
-
-      // Card body
-      const r = 4;
-      cardsCtx.beginPath();
-      cardsCtx.moveTo(-c.width/2 + r, -c.height/2);
-      cardsCtx.lineTo(c.width/2 - r, -c.height/2);
-      cardsCtx.arcTo(c.width/2, -c.height/2, c.width/2, -c.height/2 + r, r);
-      cardsCtx.lineTo(c.width/2, c.height/2 - r);
-      cardsCtx.arcTo(c.width/2, c.height/2, c.width/2 - r, c.height/2, r);
-      cardsCtx.lineTo(-c.width/2 + r, c.height/2);
-      cardsCtx.arcTo(-c.width/2, c.height/2, -c.width/2, c.height/2 - r, r);
-      cardsCtx.lineTo(-c.width/2, -c.height/2 + r);
-      cardsCtx.arcTo(-c.width/2, -c.height/2, -c.width/2 + r, -c.height/2, r);
-      cardsCtx.closePath();
-
-      cardsCtx.fillStyle = 'rgba(20, 5, 5, 0.85)';
-      cardsCtx.fill();
-      cardsCtx.strokeStyle = c.color;
-      cardsCtx.lineWidth = 1;
-      cardsCtx.stroke();
-
-      // Suit symbol
-      cardsCtx.fillStyle = c.color;
-      cardsCtx.font = 'bold 16px serif';
-      cardsCtx.textAlign = 'center';
-      cardsCtx.textBaseline = 'middle';
-      cardsCtx.fillText(c.suit, 0, 0);
-
-      cardsCtx.restore();
-    }
-
-    let lastTime = 0;
-    function animateCards(ts) {
-      // Throttle to ~30fps for performance
-      if (ts - lastTime < 33) { requestAnimationFrame(animateCards); return; }
-      lastTime = ts;
-
-      cardsCtx.clearRect(0, 0, cardsCanvas.width, cardsCanvas.height);
-      fallingCards.forEach(c => {
-        c.y += c.speed;
-        c.x += c.drift;
-        c.rotation += c.rotSpeed;
-        if (c.y > cardsCanvas.height + 80) {
-          c.y = -80;
-          c.x = Math.random() * cardsCanvas.width;
-        }
-        drawCard(c);
-      });
-      requestAnimationFrame(animateCards);
-    }
-    requestAnimationFrame(animateCards);
 
     // ─── Click particles ──────────────────────────────────
     const clickCanvas = document.getElementById('click-effect');
@@ -229,7 +135,7 @@
         clickParticles.push({
           x: e.clientX, y: e.clientY,
           radius: Math.random() * 3 + 1,
-          color: `hsl(${Math.random() < 0.6 ? 0 : 350}, 85%, 50%)`,
+          color: `hsl(${Math.random() < 0.6 ? 310 : 270}, 55%, 70%)`,
           vx: Math.random() * 5 - 2.5,
           vy: Math.random() * 5 - 2.5,
           life: 20
@@ -259,26 +165,16 @@
     }
     animateClick();
 
-    // ─── Mouse spotlight ──────────────────────────────────
     const spotlight = document.getElementById("mouse-spotlight");
     let mouseX = 0, mouseY = 0, orbX = 0, orbY = 0;
     document.addEventListener("mousemove", e => { mouseX = e.clientX; mouseY = e.clientY; });
-    function animateSpotlight() {
-      orbX += (mouseX - orbX) * 0.30;
-      orbY += (mouseY - orbY) * 0.30;
+    function animateCursor() {
+      orbX += (mouseX - orbX) * 0.18;
+      orbY += (mouseY - orbY) * 0.18;
       spotlight.style.transform = `translate(${orbX - 130}px, ${orbY - 130}px)`;
-      requestAnimationFrame(animateSpotlight);
+      requestAnimationFrame(animateCursor);
     }
-    animateSpotlight();
-
-    // ─── Custom cursor ────────────────────────────────────
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-    });
-    document.addEventListener('mousedown', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.75)');
-    document.addEventListener('mouseup',   () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+    animateCursor();
 
     // ─── Auto age ─────────────────────────────────────────
     const birthday = new Date(2011, 9, 13); // Oct 13 2011 (month is 0-indexed)
@@ -290,18 +186,7 @@
 
     // ─── Ayanokoji random quote ───────────────────────────
     const quotes = [
-      "I have no interest in working any harder than absolutely necessary.",
-      "The weak will always be the weak. There's no changing that.",
-      "People are tools. Nothing more, nothing less.",
-      "I don't need to show off. Results speak for themselves.",
-      "Emotions are a weakness that clouds judgment.",
-      "If you don't like the rules, you need to become someone who can change them.",
-      "I have no intention of losing to anyone.",
-      "What's the point of trying when the outcome is already decided?",
-      "In this world, the only thing that matters is results.",
-      "I prefer to stay in the shadows. It's easier to observe from there.",
-      "Helping others without expecting anything in return is just naive.",
-      "True strength is knowing when not to act.",
+      "I told one single lie...",
     ];
     const q = quotes[Math.floor(Math.random() * quotes.length)];
     document.getElementById('ayanokoji-quote').textContent = `"${q}"`;
