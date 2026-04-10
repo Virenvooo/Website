@@ -14,9 +14,7 @@
 
     <div class="floating-orbs"></div>
     <div id="mouse-spotlight"></div>
-    <div id="custom-cursor">♠</div>
     <div id="particles-js"></div>
-    <canvas id="cards-canvas"></canvas>
     <canvas id="click-effect"></canvas>
 
     <main class="projects-wrapper">
@@ -25,17 +23,18 @@
         <div class="projects-grid">
 
             <!-- Project 1 -->
-            <a href="https://github.com/Virenvooo/password-generator" class="project-link" target="_blank" rel="noopener noreferrer">
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://i.imgur.com/ZFulVl8.png" class="project-img" alt="Preview">
-                        <div class="hover-overlay"><div class="expand-icon">↗</div></div>
+            <div class="project-card project-card--locked">
+                <div class="project-img-wrapper">
+                    <img src="https://i.imgur.com/I4icbCg.png" class="project-img" alt="Preview">
+                    <div class="locked-overlay">
+                        <div class="lock-icon">🔒</div>
+                        <span class="lock-label">Coming Soon</span>
                     </div>
-                    <h2 class="project-name">SecurePass</h2>
-                    <p class="project-desc">A beautiful, secure, and easy-to-use password generator built with customtkinter.</p>
-                    <div class="project-tags"><span class="tag">Python</span></div>
                 </div>
-            </a>
+                <h2 class="project-name">???</h2>
+                <p class="project-desc">Something is being prepared. Stay tuned.</p>
+                <div class="project-tags"><span class="tag">TBA</span></div>
+            </div>
 
             <!-- Project 2 -->
             <div class="project-card project-card--locked">
@@ -71,20 +70,11 @@
     </main>
 
     <script>
-    // ─── Custom cursor ────────────────────────────────────
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-    });
-    document.addEventListener('mousedown', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.75)');
-    document.addEventListener('mouseup',   () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
-
     // ─── Particles (light) ────────────────────────────────
     particlesJS("particles-js", {
       particles: {
         number: { value: 25 },
-        color: { value: ["#8B0000", "#C0392B", "#E05555"] },
+        color: { value: ["#b07ca0", "#8b7ab8", "#e8c4dc"] },
         opacity: { value: 0.6, random: true },
         size: { value: 2.2, random: true },
         line_linked: { enable: false },
@@ -94,71 +84,6 @@
       retina_detect: false
     });
 
-    // ─── Falling cards ────────────────────────────────────
-    const cardsCanvas = document.getElementById('cards-canvas');
-    const cardsCtx = cardsCanvas.getContext('2d');
-    function resizeCards() { cardsCanvas.width = window.innerWidth; cardsCanvas.height = window.innerHeight; }
-    resizeCards();
-    window.addEventListener('resize', resizeCards);
-
-    const SUITS = ['♠','♥','♦','♣'];
-    const COLORS = ['#E05555','#8B0000','#C0392B','#ff6b6b'];
-
-    function createCard() {
-      return {
-        x: Math.random() * window.innerWidth, y: -80,
-        width: 32, height: 44,
-        suit: SUITS[Math.floor(Math.random() * 4)],
-        color: COLORS[Math.floor(Math.random() * 4)],
-        speed: 0.5 + Math.random() * 1.0,
-        rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.012,
-        drift: (Math.random() - 0.5) * 0.3,
-        opacity: 0.5 + Math.random() * 0.5
-      };
-    }
-
-    let fallingCards = Array.from({ length: 18 }, createCard).map(c => { c.y = Math.random() * window.innerHeight; return c; });
-
-    function drawCard(c) {
-      cardsCtx.save();
-      cardsCtx.globalAlpha = c.opacity;
-      cardsCtx.translate(c.x, c.y);
-      cardsCtx.rotate(c.rotation);
-      const r = 4, w = c.width/2, h = c.height/2;
-      cardsCtx.beginPath();
-      cardsCtx.moveTo(-w+r,-h); cardsCtx.lineTo(w-r,-h);
-      cardsCtx.arcTo(w,-h,w,-h+r,r); cardsCtx.lineTo(w,h-r);
-      cardsCtx.arcTo(w,h,w-r,h,r); cardsCtx.lineTo(-w+r,h);
-      cardsCtx.arcTo(-w,h,-w,h-r,r); cardsCtx.lineTo(-w,-h+r);
-      cardsCtx.arcTo(-w,-h,-w+r,-h,r); cardsCtx.closePath();
-      cardsCtx.fillStyle = 'rgba(20,5,5,0.85)';
-      cardsCtx.fill();
-      cardsCtx.strokeStyle = c.color;
-      cardsCtx.lineWidth = 1;
-      cardsCtx.stroke();
-      cardsCtx.fillStyle = c.color;
-      cardsCtx.font = 'bold 16px serif';
-      cardsCtx.textAlign = 'center';
-      cardsCtx.textBaseline = 'middle';
-      cardsCtx.fillText(c.suit, 0, 0);
-      cardsCtx.restore();
-    }
-
-    let lastT = 0;
-    function animateCards(ts) {
-      if (ts - lastT < 33) { requestAnimationFrame(animateCards); return; }
-      lastT = ts;
-      cardsCtx.clearRect(0, 0, cardsCanvas.width, cardsCanvas.height);
-      fallingCards.forEach(c => {
-        c.y += c.speed; c.x += c.drift; c.rotation += c.rotSpeed;
-        if (c.y > cardsCanvas.height + 80) { c.y = -80; c.x = Math.random() * cardsCanvas.width; }
-        drawCard(c);
-      });
-      requestAnimationFrame(animateCards);
-    }
-    requestAnimationFrame(animateCards);
-
     // ─── Click particles ──────────────────────────────────
     const clickCanvas = document.getElementById('click-effect');
     const clickCtx = clickCanvas.getContext('2d');
@@ -166,7 +91,7 @@
     let clickParticles = [];
     document.addEventListener('click', e => {
       for (let i = 0; i < 6; i++) {
-        clickParticles.push({ x: e.clientX, y: e.clientY, radius: Math.random()*3+1, color: `hsl(${Math.random()<0.6?0:350},85%,50%)`, vx: Math.random()*5-2.5, vy: Math.random()*5-2.5, life: 20 });
+        clickParticles.push({ x: e.clientX, y: e.clientY, radius: Math.random()*3+1, color: `hsl(${Math.random()<0.6?310:270},55%,70%)`, vx: Math.random()*5-2.5, vy: Math.random()*5-2.5, life: 20 });
       }
     });
     window.addEventListener('resize', () => { clickCanvas.width = window.innerWidth; clickCanvas.height = window.innerHeight; });
@@ -183,16 +108,16 @@
     }
     animateClick();
 
-    // ─── Mouse spotlight ──────────────────────────────────
+    // ─── Mouse spotlight ─────────────────────────────────
     const spotlight = document.getElementById("mouse-spotlight");
     let mouseX=0,mouseY=0,orbX=0,orbY=0;
     document.addEventListener("mousemove", e => { mouseX=e.clientX; mouseY=e.clientY; });
-    function animateSpotlight() {
-      orbX+=(mouseX-orbX)*0.30; orbY+=(mouseY-orbY)*0.30;
+    function animateCursor() {
+      orbX+=(mouseX-orbX)*0.18; orbY+=(mouseY-orbY)*0.18;
       spotlight.style.transform=`translate(${orbX-130}px,${orbY-130}px)`;
-      requestAnimationFrame(animateSpotlight);
+      requestAnimationFrame(animateCursor);
     }
-    animateSpotlight();
+    animateCursor();
 
     // ─── Title animation ──────────────────────────────────
     const frames = ["@","@p","@pr","@pro","@proj","@proje","@projec","@project","@projects","@projects ","@projects -","@projects - ","@projects - v","@projects - vi","@projects - vir","@projects - vi","@projects - v","@projects - ","@projects -","@projects ","@projects","@project","@projec","@proje","@proj","@pro","@pr","@p","@"];
